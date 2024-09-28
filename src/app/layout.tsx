@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import { leagueSpartan } from "@/libs/fonts";
 
 export const metadata: Metadata = {
   title: "Invoices | Dirk Brandon Lapitan",
@@ -13,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={leagueSpartan.className}>
         {children}
       </body>
     </html>
