@@ -1,7 +1,10 @@
+import ThemeToggle from "../theme-toggle/theme-toggle";
+
 export default function Header(){
+
     return (
-        <>
-            <h1>Header</h1>
-        </>
+        <header>
+            <ThemeToggle/>
+        </header>
     );
 }

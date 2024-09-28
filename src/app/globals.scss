@@ -3,6 +3,7 @@
 
 :root{
     --body-bkg: #{$white};
+    --header-bkg: #{$light-blue};
 }
 
 html{
@@ -18,4 +19,8 @@ html{
 
 body{
     background-color: var(--body-bkg);
+}
+
+header{
+    background-color: var(--header-bkg);
 }
