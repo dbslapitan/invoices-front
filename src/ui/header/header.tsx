@@ -12,6 +12,7 @@ export default function Header(){
                 <span className={`${style["logo__bkg"]}`}></span>
                 <Image className={`${style["logo__img"]}`} src={logo} alt="circle with a cut like a pie"></Image>
             </Link>
+            <ThemeToggle />
         </header>
     );
 }

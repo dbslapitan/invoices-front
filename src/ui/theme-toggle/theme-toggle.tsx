@@ -10,13 +10,13 @@ import { useTheme } from "next-themes";
 export default function ThemeToggle(){
 
     const { resolvedTheme, setTheme } = useTheme();
-    const [isMouted, setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        if(!isMouted){
+        if(!isMounted){
             setIsMounted(true);
         }
-    }, [isMouted]);
+    }, [isMounted]);
 
     const toggleTheme = () => {
         if(resolvedTheme === "dark"){
@@ -27,9 +27,9 @@ export default function ThemeToggle(){
     }
 
     return(
-        <button className={`${style["theme"]} ${!isMouted ? style["theme--loading"] : ""}`} onClick={toggleTheme}>
+        <button className={`${style["theme"]} ${!isMounted ? style["theme--loading"] : ""}`} onClick={toggleTheme}>
             {
-                isMouted && resolvedTheme === 'dark' ? <Image src={sun} alt="sun"></Image> : <Image src={moon} alt="moon"></Image>
+                isMounted && resolvedTheme === 'dark' ? <Image src={sun} alt="sun"></Image> : <Image src={moon} alt="moon"></Image>
             }
         </button>
     );
