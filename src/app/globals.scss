@@ -4,11 +4,13 @@
 :root{
     --body-bkg: #{$white};
     --header-bkg: #{$light-blue};
+    --invoices-count: #{$gray};
 }
 
 [data-theme='dark']{
     --body-bkg: #{$black};
     --header-bkg: #{$dark-blue};
+    --invoice-count: #{$light-gray};
 }
 
 html{

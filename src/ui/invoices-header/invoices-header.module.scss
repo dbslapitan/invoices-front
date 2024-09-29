@@ -1,0 +1,20 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.header{
+    display: flex;
+
+    &__left{
+        display: flex;
+        flex-direction: column
+    }
+
+    &__title{
+        @include heading-m;
+    }
+
+    &__count{
+        @include body-mv;
+        color: var(--invoices-count);
+    }
+}
