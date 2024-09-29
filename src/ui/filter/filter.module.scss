@@ -1,0 +1,26 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.filter{
+    margin-left: auto;
+
+    &__btn{
+        @include heading-sv;
+        display: flex;
+
+        &--rotate{
+
+            &::after{
+                display: block;
+                content: url("../../../public/icons/icon-arrow-down.svg");
+                margin-left: 0.75rem;
+                transform: rotate(180deg) translateY(25%);
+            }
+        }
+
+        &::after{
+            content: url("../../../public/icons/icon-arrow-down.svg");
+            margin-left: 0.75rem;
+        }
+    }
+}

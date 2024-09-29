@@ -51,6 +51,10 @@ main{
 }
 
 button{
+    border: none;
+    background-color: inherit;
+    font-family: inherit;
+
     &:hover{
         cursor: pointer;
     }
