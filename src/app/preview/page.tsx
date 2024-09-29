@@ -1,5 +1,9 @@
+import style from "./page.module.scss";
+
 export default function PreviewPage(){
     return(
-        <h1>Preview Page</h1>
+        <main className={`${style["main"]}`}>
+            
+        </main>
     );
 }

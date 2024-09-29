@@ -61,10 +61,14 @@
 }
 
 .user{
-    padding: 1.25rem;
+    padding: 0 1.25rem;
     border-left: 1px solid #494E6E;
+    min-height: 4.5rem;
+    display: flex;
+    align-items: center;
 
     @include desktop{
+        display: block;
         padding: 1.5rem 0;
         text-align: center;
     }
