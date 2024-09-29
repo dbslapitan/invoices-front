@@ -1,10 +1,17 @@
+import Link from "next/link";
 import ThemeToggle from "../theme-toggle/theme-toggle";
+import style from "./header.module.scss";
+import Image from "next/image";
+import logo from "../../../public/logos/logo.svg";
 
 export default function Header(){
 
     return (
-        <header>
-            <ThemeToggle/>
+        <header className={`${style["header"]}`}>
+            <Link href={`/`} className={`${style["logo"]}`}>
+                <span className={`${style["logo__bkg"]}`}></span>
+                <Image className={`${style["logo__img"]}`} src={logo} alt="circle with a cut like a pie"></Image>
+            </Link>
         </header>
     );
 }

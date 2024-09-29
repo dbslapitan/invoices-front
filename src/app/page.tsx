@@ -1,9 +1,6 @@
-import styles from "./page.module.scss";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      <h1>REact</h1>
-    </>
-  );
+    redirect(`/preview`);
+  return null;
 }
