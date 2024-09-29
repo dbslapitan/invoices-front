@@ -8,19 +8,16 @@
         @include heading-sv;
         display: flex;
 
-        &--rotate{
-
-            &::after{
-                display: block;
-                content: url("../../../public/icons/icon-arrow-down.svg");
-                margin-left: 0.75rem;
-                transform: rotate(180deg) translateY(25%);
-            }
-        }
-
         &::after{
+            display: block;
             content: url("../../../public/icons/icon-arrow-down.svg");
             margin-left: 0.75rem;
+        }
+
+        &--rotate{
+            &::after{
+                transform: rotate(180deg) translateY(25%);
+            }
         }
     }
 }
