@@ -6,6 +6,11 @@
     --header-bkg: #{$light-blue};
 }
 
+[data-theme='dark']{
+    --body-bkg: #{$black};
+    --header-bkg: #{$dark-blue};
+}
+
 html{
     box-sizing: border-box;
     min-height: 100%;
