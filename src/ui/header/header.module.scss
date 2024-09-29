@@ -33,3 +33,14 @@
         z-index: 1000;
     }
 }
+
+.user{
+    padding: 1.25rem 1.5rem;
+    border-left: 1px solid #494E6E;
+
+    &__img{
+        max-width: 2rem;
+        max-height: 2rem;
+        border-radius: 100%;
+    }
+}
