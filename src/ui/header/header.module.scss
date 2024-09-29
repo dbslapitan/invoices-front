@@ -4,6 +4,11 @@
 .header{
     display: flex;
     align-items: center;
+
+    @include desktop{
+        flex-direction: column;
+        border-radius: 0 1.25rem 1.25rem 0;
+    }
 }
 
 .logo{
@@ -18,6 +23,20 @@
     align-items: center;
     justify-content: center;
 
+    @include tablet{
+        min-width: 5rem;
+        min-height: 5rem;
+        max-width: 5rem;
+        max-height: 5rem;
+    }
+
+    @include desktop{
+        min-width: 6.4375rem;
+        min-height: 6.4375rem;
+        max-width: 6.4375rem;
+        max-height: 6.4375rem;
+    }
+
     &__bkg{
         display: block;
         position: absolute;
@@ -31,16 +50,39 @@
     &__img{
         position: relative;
         z-index: 1000;
+        height: 1.75rem;
+        width: 1.75rem;
+
+        @include tablet{
+            height: 2rem;
+            width: 2rem;
+        }
     }
 }
 
 .user{
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem;
     border-left: 1px solid #494E6E;
+
+    @include desktop{
+        padding: 1.5rem 0;
+        text-align: center;
+    }
 
     &__img{
         max-width: 2rem;
         max-height: 2rem;
         border-radius: 100%;
+
+        @include desktop{
+            max-width: 2.5rem;
+            max-height: 2.5rem;
+        }
+    }
+
+    @include desktop{
+        border-left: none;
+        border-top: 1px solid #494E6E;
+        width: 100%;
     }
 }
