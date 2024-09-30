@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.empty{
+    text-align: center;
+    margin-top: 6.375rem;
+
+    &__header{
+        @include heading-m;
+        margin-top: 2.625rem;
+    }
+
+    &__body{
+        @include body-mv;
+        margin: 1.5rem auto 0 auto;
+        width: 11rem;
+        color: var(--invoices-count);
+    }
+}
