@@ -5,12 +5,14 @@
     --body-bkg: #{$white};
     --header-bkg: #{$light-blue};
     --invoices-count: #{$gray};
+    --checkbox-bkg: #{$light-gray};
 }
 
 [data-theme='dark']{
     --body-bkg: #{$black};
     --header-bkg: #{$dark-blue};
     --invoice-count: #{$light-gray};
+    --checkbox-bkg: #{$dark-blue};
 }
 
 html{
@@ -58,4 +60,8 @@ button{
     &:hover{
         cursor: pointer;
     }
+}
+
+ul{
+    list-style: none;
 }

@@ -3,6 +3,7 @@
 
 .filter{
     margin-left: auto;
+    position: relative;
 
     &__btn{
         @include heading-sv;
@@ -27,5 +28,18 @@
                 display: unset;
             }
         }
+    }
+}
+
+.filters{
+    display: none;
+    position: absolute;
+    width: 12rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
+
+    &--show{
+        display: block;
+        top: calc(100% + 1.125rem);
     }
 }
