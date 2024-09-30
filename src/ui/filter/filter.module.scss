@@ -19,5 +19,13 @@
                 transform: rotate(180deg) translateY(25%);
             }
         }
+
+        &--show{
+            display: none;
+
+            @include tablet{
+                display: unset;
+            }
+        }
     }
 }

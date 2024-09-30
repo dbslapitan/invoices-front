@@ -5,9 +5,24 @@
     text-align: center;
     margin-top: 6.375rem;
 
+    @include tablet{
+        margin-top: 13.125rem;
+    }
+
     &__header{
         @include heading-m;
         margin-top: 2.625rem;
+
+        @include tablet{
+            margin-top: 4.125rem;
+        }
+    }
+
+    &__img{
+        @include tablet{
+            height: 12.5rem;
+            width: 15.125rem;
+        }
     }
 
     &__body{
@@ -15,5 +30,18 @@
         margin: 1.5rem auto 0 auto;
         width: 11rem;
         color: var(--invoices-count);
+
+        @include tablet{
+            width: 12.125rem;
+            text-align: justify;
+        }
+
+        &--show{
+            display: none;
+
+            @include tablet{
+                display: unset;
+            }
+        }
     }
 }

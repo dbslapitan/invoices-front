@@ -5,4 +5,8 @@
     padding-top: 2.25rem;
     width: 87.2%;
     margin: 0 auto;
+
+    @include tablet{
+        padding-top: 3.875rem;
+    }
 }

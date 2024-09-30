@@ -13,6 +13,10 @@
 
     &__title{
         @include heading-m;
+
+        @include tablet{
+            @include heading-l;
+        }
     }
 
     &__count{

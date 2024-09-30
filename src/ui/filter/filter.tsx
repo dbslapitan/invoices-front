@@ -7,7 +7,8 @@ export default function Filter(){
 
     return(
         <div className={`${style["filter"]}`}>
-            <button className={`${style["filter__btn"]} ${isOpen ? style["filter__btn--rotate"] : ""}`} onClick={() => setIsOpen(!isOpen)}>Filter</button>
+            <button className={`${style["filter__btn"]} ${isOpen ? style["filter__btn--rotate"] : ""}`} onClick={() => setIsOpen(!isOpen)}>Filter <span className={`${style["filter__btn--show"]}`}>by status</span></button>
+            
         </div>
     );
 }
