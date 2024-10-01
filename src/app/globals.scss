@@ -65,3 +65,41 @@ button{
 ul{
     list-style: none;
 }
+
+input[type="checkbox"]{
+    all: unset;
+}
+
+input[type="checkbox"] + label{
+    @include heading-sv;
+    position: relative;
+    padding-left: 3.25rem;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+input[type="checkbox"] + label::before{
+    content: " ";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: -2px;
+    border-radius: 0.125rem;
+    background-color: var(--checkbox-bkg);
+    left: 1.5rem;
+}
+
+input[type="checkbox"]:checked + label::before{
+    background-color: $purple;
+    content: url("../../public/icons/icon-check.svg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="checkbox"] + label:hover::before{
+    border: 1px solid $purple;
+}
