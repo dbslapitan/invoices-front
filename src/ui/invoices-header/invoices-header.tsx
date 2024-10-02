@@ -11,7 +11,7 @@ export default function InvoicesHeader(){
             <Filter />
             <button className={`${style["header__add"]}`}>
                 <span className={`${style["header__plus"]}`}></span>
-                New
+                New <span className={`${style["header__add--show"]}`}>&nbsp;Invoice</span>
             </button>
         </section>
     );

@@ -33,6 +33,14 @@
         margin-left: 1.125rem;
         border-radius: 1.5625rem;
         align-items: center;
+
+        &--show{
+            display: none;
+
+            @include tablet{
+                display: unset;
+            }
+        }
     }
 
     &__plus{
