@@ -9,4 +9,9 @@
     @include tablet{
         padding-top: 3.875rem;
     }
+
+    @include desktop{
+        padding-top: 4.875rem;
+        width: 50.70%;
+    }
 }
