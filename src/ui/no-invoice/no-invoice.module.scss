@@ -9,6 +9,10 @@
         margin-top: 13.125rem;
     }
 
+    @include desktop{
+        margin-top: 8.75rem;
+    }
+
     &__header{
         @include heading-m;
         margin-top: 2.625rem;
