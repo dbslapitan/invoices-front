@@ -9,7 +9,7 @@ export default function InvoicesHeader(){
                 <p className={`${style["header__count"]}`}>7 invoices</p>
             </div>
             <Filter />
-            <button className={`${style["header__add"]}`}>
+            <button className={`${style["header__add"]} btn--purple`}>
                 <span className={`${style["header__plus"]}`}></span>
                 New <span className={`${style["header__add--show"]}`}>&nbsp;Invoice</span>
             </button>
