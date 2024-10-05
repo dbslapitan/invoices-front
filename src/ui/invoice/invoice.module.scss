@@ -9,12 +9,29 @@
     background-color: var(--invoice-bkg);
     border-radius: 0.5rem;
     position: relative;
+    margin-top: 1rem;
+
+    &:first-of-type{
+        margin-top: 2rem;
+    }
 
     @include tablet{
         flex-wrap: nowrap;
         position: static;
-        padding: 1rem 2rem;
+        padding: 1rem 1.5rem;
         align-items: center;
+
+        &:first-of-type{
+            margin-top: 3.4375rem;
+        }
+    }
+
+    @include desktop{
+        padding: 1rem 2rem;
+
+        &:first-of-type{
+            margin-top: 4rem;
+        }
     }
 
     &__id{
@@ -23,6 +40,10 @@
 
         @include tablet{
             width: 13%;
+        }
+
+        @include desktop{
+            width: 14.12%;
         }
 
         &::before{
@@ -42,6 +63,10 @@
             position: static;
             width: 21.3%;
         }
+
+        @include desktop{
+            width: 20.68%;
+        }
     }
 
     &__name{
@@ -53,7 +78,6 @@
 
         @include tablet{
             position: static;
-            width: 23.36%;
         }
     }
 
@@ -63,8 +87,9 @@
 
         @include tablet{
             margin-top: 0;
-            width: 16.22%;
+            width: 16.37%;
             text-align: end;
+            margin-left: auto;
         }
     }
 
