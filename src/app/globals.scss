@@ -7,6 +7,8 @@
     --invoices-count: #{$gray};
     --checkbox-bkg: #{$light-gray};
     --invoice-bkg: #FFFFFF;
+    --invoice-name: #858BB2;
+    --invoice-due: #{$bluish-gray};
 }
 
 [data-theme='dark']{
@@ -15,6 +17,8 @@
     --invoice-count: #{$light-gray};
     --checkbox-bkg: #{$dark-blue};
     --invoice-bkg: #{$dark-blue};
+    --invoice-name: #FFFFFF;
+    --invoice-due: #{$light-gray};
 }
 
 html{
@@ -114,6 +118,7 @@ input[type="checkbox"] + label:hover::before{
 main{
     padding-top: 2.25rem;
     width: 87.2%;
+    max-width: 45.625rem;
     margin: 0 auto;
 
     @include tablet{
