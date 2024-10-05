@@ -22,7 +22,7 @@
         width: 100%;
 
         @include tablet{
-            width: unset;
+            width: 13%;
         }
 
         &::before{
@@ -40,6 +40,7 @@
 
         @include tablet{
             position: static;
+            width: 21.3%;
         }
     }
 
@@ -52,6 +53,7 @@
 
         @include tablet{
             position: static;
+            width: 23.36%;
         }
     }
 
@@ -61,6 +63,8 @@
 
         @include tablet{
             margin-top: 0;
+            width: 16.22%;
+            text-align: end;
         }
     }
 
@@ -77,6 +81,7 @@
 
         @include tablet{
             position: static;
+            margin-left: 2.5rem;
         }
         
 
@@ -96,5 +101,9 @@
         width: 0.5rem;
         height: 0.5rem;
         border-radius: 0.25rem;
+    }
+
+    &__carret{
+        margin-left: 1.25rem;
     }
 }

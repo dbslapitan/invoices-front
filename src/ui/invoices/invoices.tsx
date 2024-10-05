@@ -9,6 +9,7 @@ export default function Invoices(){
         <>
             <InvoicesHeader />
             <Invoice />
+            <Invoice />
         </>
     );
 }
