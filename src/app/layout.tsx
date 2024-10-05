@@ -19,7 +19,9 @@ export default function RootLayout({
             <body className={leagueSpartan.className}>
                 <Providers>
                     <Header />
-                    {children}
+                    <main>
+                        {children}
+                    </main>
                 </Providers>
             </body>
         </html>

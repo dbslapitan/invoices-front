@@ -1,10 +1,11 @@
-import Main from "@/ui/main/main";
+import Invoices from "@/ui/invoices/invoices";
 import style from "./page.module.scss";
+import InvoicesHeader from "@/ui/invoices-header/invoices-header";
 
 export default function PreviewPage(){
     return(
-        <main className={`${style["main"]}`}>
-            <Main />
-        </main>
+        <>
+            <Invoices />
+        </>
     );
 }
