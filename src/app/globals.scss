@@ -6,6 +6,7 @@
     --header-bkg: #{$light-blue};
     --invoices-count: #{$gray};
     --checkbox-bkg: #{$light-gray};
+    --invoice-bkg: #FFFFFF;
 }
 
 [data-theme='dark']{
@@ -13,6 +14,7 @@
     --header-bkg: #{$dark-blue};
     --invoice-count: #{$light-gray};
     --checkbox-bkg: #{$dark-blue};
+    --invoice-bkg: #{$dark-blue};
 }
 
 html{
@@ -24,6 +26,11 @@ html{
     padding: 0;
     margin: 0;
     box-sizing: inherit;
+}
+
+a{
+    text-decoration: none;
+    color: unset;
 }
 
 body{

@@ -1,2 +1,60 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
+
+.invoice{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: var(--invoice-bkg);
+    border-radius: 0.5rem;
+    position: relative;
+
+    &__id{
+        @include heading-sv;
+        width: 100%;
+
+        &::before{
+            content: "#";
+            color: $bluish-gray;
+        }
+    }
+
+    &__due{
+        position: absolute;
+    }
+
+    &__name{
+        position: absolute;
+    }
+
+    &__amount{
+        @include heading-s;
+        margin-top: 3rem;
+    }
+
+    &__status{
+        @include heading-sv;
+        color: #33D69F;
+        position: absolute;
+        padding: 0.8125rem 1.875rem;
+        right: 0;
+        border-radius: 0.375rem;
+        display: flex;
+        column-gap: 0.5rem;
+
+        &--green{
+            background-color: #33D69F0D;
+
+            .invoice__bullet{
+                position: relative;
+                top: 0.125rem;
+                display: block;
+                width: 0.5rem;
+                height: 0.5rem;
+                background-color: #33D69F;
+                border-radius: 0.25rem;
+            }
+        }
+    }
+}
