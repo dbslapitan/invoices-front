@@ -1,13 +1,12 @@
+import { ReactNode } from "react";
 import Back from "../back/back";
 import style from "./modal.module.scss";
 
-export default function Modal(){
+export default function Modal({ children }: {children: ReactNode}){
 
     return(
-        <section className={`${style["modal"]}`}>
-            <Back />
-            <h1>New Invoice</h1>
-            
-        </section>
+        <div className={`${style["modal"]}`}>
+           {children}
+        </div>
     );
 }
