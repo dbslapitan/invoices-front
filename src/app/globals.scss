@@ -119,23 +119,6 @@ input[type="checkbox"] + label:hover::before{
     border: 1px solid $purple;
 }
 
-main{
-    padding-top: 2.25rem;
-    width: 87.2%;
-    max-width: 45.625rem;
-    margin: 0 auto;
-    padding-bottom: 6.5625rem;
-
-    @include tablet{
-        padding-top: 3.875rem;
-    }
-
-    @include desktop{
-        padding-top: 4.875rem;
-        width: 50.70%;
-    }
-}
-
 .btn--purple{
     background-color: $purple;
 
