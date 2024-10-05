@@ -9,6 +9,7 @@
     --invoice-bkg: #FFFFFF;
     --invoice-name: #858BB2;
     --invoice-due: #{$bluish-gray};
+    --filter-bkg: #FFF;
 }
 
 [data-theme='dark']{
@@ -19,6 +20,7 @@
     --invoice-bkg: #{$dark-blue};
     --invoice-name: #FFFFFF;
     --invoice-due: #{$light-gray};
+    --filter-bkg: #{$blue};
 }
 
 html{

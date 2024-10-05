@@ -38,6 +38,8 @@
     border-radius: 0.5rem;
     box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
     left: -30%;
+    background-color: var(--filter-bkg);
+    z-index: 100;
 
     &--show{
         display: block;

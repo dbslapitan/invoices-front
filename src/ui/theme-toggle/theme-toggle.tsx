@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import moon from "../../../public/icons/icon-moon.svg";
 import sun from "../../../public/icons/icon-sun.svg";
 import style from "./theme-toggle.module.scss";
@@ -18,7 +18,8 @@ export default function ThemeToggle(){
         }
     }, [isMounted]);
 
-    const toggleTheme = () => {
+    const toggleTheme = (e: MouseEvent) => {
+        e.stopPropagation();
         if(resolvedTheme === "dark"){
             setTheme("light");
         } else{
