@@ -1,2 +1,11 @@
 @use "../../styles/mixins" as *;
 @use "../../styles/variables" as *;
+
+.modal{
+    position: absolute;
+    background-color: var(--body-bkg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 1.5rem;
+}

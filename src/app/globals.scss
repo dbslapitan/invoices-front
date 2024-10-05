@@ -60,6 +60,8 @@ header{
 }
 
 main{
+    position: relative;
+
     @include desktop{
         grid-area: main;
     }

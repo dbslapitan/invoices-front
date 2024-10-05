@@ -1,0 +1,11 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.back{
+    @include heading-sv;
+
+    &::before{
+        content: url("../../../public/icons/icon-arrow-left.svg");
+        margin-right: 1.5rem;
+    }
+}

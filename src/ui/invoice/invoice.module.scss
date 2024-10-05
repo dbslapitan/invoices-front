@@ -129,6 +129,11 @@
     }
 
     &__carret{
-        margin-left: 1.25rem;
+        display: none;
+
+        @include tablet{
+            display: unset;
+            margin-left: 1.25rem;
+        }
     }
 }
