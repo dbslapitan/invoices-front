@@ -5,6 +5,11 @@
 .action{
     background-color: var(--overlay-bkg);
     padding: 2rem 1.5rem;
+    max-width: 38.5rem;
+
+    @include tablet{
+        border-radius: 0 1.25rem 1.25rem 0;
+    }
 
     &__title{
         @include heading-ml;

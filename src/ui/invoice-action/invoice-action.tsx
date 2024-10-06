@@ -5,7 +5,7 @@ import style from "./invoice-action.module.scss";
 
 export default function InvoiceAction(){
     return(
-        <form className={`${style["action"]}`}>
+        <form className={`${style["action"]}`} onSubmit={() => console.log("onSubmit")}>
             <Back />
             <h1 className={`${style["action__title"]}`}>New Invoice</h1>
             <fieldset className={`${style["fieldset"]}`}>

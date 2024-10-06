@@ -3,8 +3,9 @@
 
 .modal{
     position: absolute;
-    background-color: var(--body-bkg);
     top: 0;
     left: 0;
     width: 100%;
+    background-color: #00000080;
+    min-height: 100vh;
 }
