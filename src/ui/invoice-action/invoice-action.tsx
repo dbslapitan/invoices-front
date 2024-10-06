@@ -27,7 +27,25 @@ export default function InvoiceAction(){
                     <input className={`${style["fieldset__input"]}`} type="text" id="from-country" />
                 </div>
             </fieldset>
-            
+            <fieldset className={`${style["fieldset"]} ${style["fieldset--to"]}`}>
+                <legend className={`${style["fieldset__legend"]}`}>Bill To</legend>
+                <div className={`${style["fieldset__block"]}`}>
+                    <label className={`${style["fieldset__label"]}`} htmlFor="to-street">Street Address</label>
+                    <input className={`${style["fieldset__input"]}`} type="text" id="to-street" />
+                </div>
+                <div className={`${style["fieldset__block"]} ${style["fieldset__block--city"]}`}>
+                    <label className={`${style["fieldset__label"]}`} htmlFor="to-city">City</label>
+                    <input className={`${style["fieldset__input"]}`} type="text" id="to-city" />
+                </div>
+                <div className={`${style["fieldset__block"]} ${style["fieldset__block--postal"]}`}>
+                    <label className={`${style["fieldset__label"]}`} htmlFor="to-postal">Post Code</label>
+                    <input className={`${style["fieldset__input"]}`} type="text" id="to-postal" />
+                </div>
+                <div className={`${style["fieldset__block"]} ${style["fieldset__block--country"]}`}>
+                    <label className={`${style["fieldset__label"]}`} htmlFor="to-country">Country</label>
+                    <input className={`${style["fieldset__input"]}`} type="text" id="to-country" />
+                </div>
+            </fieldset>
         </form>
     );
 }
