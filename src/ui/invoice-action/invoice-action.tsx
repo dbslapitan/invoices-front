@@ -1,11 +1,17 @@
 "use client";
 
+import { MouseEvent } from "react";
 import Back from "../back/back";
 import style from "./invoice-action.module.scss";
 
 export default function InvoiceAction(){
+
+    const clickHandler = (e: MouseEvent) => {
+        e.stopPropagation();
+    };
+
     return(
-        <form className={`${style["action"]}`} onSubmit={() => console.log("onSubmit")}>
+        <form className={`${style["action"]}`} onClick={clickHandler} onSubmit={() => console.log("onSubmit")}>
             <Back />
             <h1 className={`${style["action__title"]}`}>New Invoice</h1>
             <fieldset className={`${style["fieldset"]}`}>
