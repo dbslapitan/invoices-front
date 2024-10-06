@@ -12,6 +12,7 @@
     --filter-bkg: #FFF;
     --action-lbl: #{$bluish-gray};
     --input-border: 1px solid #{$light-gray};
+    --overlay-bkg: #FFFFFF;
 }
 
 [data-theme='dark']{
@@ -25,6 +26,7 @@
     --filter-bkg: #{$blue};
     --action-lbl: #{$gray};
     --input-border: 1px solid #{$blue};
+    --overlay-bkg: #{$black};
 }
 
 html{

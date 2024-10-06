@@ -3,6 +3,9 @@
 
 
 .action{
+    background-color: var(--overlay-bkg);
+    padding: 2rem 1.5rem;
+
     &__title{
         @include heading-ml;
         margin-top: 1.625rem;
@@ -48,6 +51,12 @@
         border-radius: 0.25rem;
         padding: 1rem 1.25rem;
         max-height: 3rem;
+        caret-color: $purple;
+
+        &:focus{
+            border: 1px solid $purple;
+            outline: none;
+        }
     }
 
     &--to{
