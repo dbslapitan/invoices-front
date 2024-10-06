@@ -10,6 +10,8 @@
     --invoice-name: #858BB2;
     --invoice-due: #{$bluish-gray};
     --filter-bkg: #FFF;
+    --action-lbl: #{$bluish-gray};
+    --input-border: 1px solid #{$light-gray};
 }
 
 [data-theme='dark']{
@@ -21,6 +23,8 @@
     --invoice-name: #FFFFFF;
     --invoice-due: #{$light-gray};
     --filter-bkg: #{$blue};
+    --action-lbl: #{$gray};
+    --input-border: 1px solid #{$blue};
 }
 
 html{
@@ -117,6 +121,10 @@ input[type="checkbox"]:checked + label::before{
 
 input[type="checkbox"] + label:hover::before{
     border: 1px solid $purple;
+}
+
+fieldset{
+    border: none;
 }
 
 .btn--purple{

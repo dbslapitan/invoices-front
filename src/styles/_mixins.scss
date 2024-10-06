@@ -18,10 +18,17 @@
     letter-spacing: -1.125px;
 }
 
-@mixin heading-m{
+@mixin heading-ml{
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.75px;
+    line-height: 1.33333;
+}
+
+@mixin heading-m{
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 @mixin heading-s{
