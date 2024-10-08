@@ -100,3 +100,32 @@
         margin-top: 2.625rem;
     }
 }
+
+.calendar{
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: calc(100% + 1.5rem);
+
+    &--show{
+        display: block;
+    }
+
+    &__head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__previous{
+        padding-right: 2rem;
+    }
+
+    &__next{
+        padding-left: 2rem;
+    }
+
+    &__date{
+        @include heading-sv;
+    }
+}

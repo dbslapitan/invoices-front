@@ -3,15 +3,23 @@
 import { MouseEvent, useState } from "react";
 import Back from "../back/back";
 import style from "./invoice-action.module.scss";
+import Image from "next/image";
+import left from "../../../public/icons/icon-arrow-left.svg";
+import right from "../../../public/icons/icon-arrow-right.svg";
 
 export default function InvoiceAction(){
 
     const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const [ due, setDue ] = useState((new Date()));
+    const [ isDueOpen, setIsDueOpen ] = useState(false);
     const toDate = `${due.getDate()} ${month[due.getMonth()]} ${due.getFullYear()}`;
 
     const clickHandler = (e: MouseEvent) => {
         e.stopPropagation();
+    };
+
+    const calendarHandler = () => {
+        setIsDueOpen(!isDueOpen);
     };
 
     return(
@@ -57,7 +65,14 @@ export default function InvoiceAction(){
                 </div>
                 <div className={`${style["fieldset__block"]} ${style["fieldset__block--due"]}`}>
                     <label className={`${style["fieldset__label"]}`} htmlFor="to-due">Invoice Date</label>
-                    <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={toDate}/>
+                    <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={toDate} onClick={calendarHandler}/>
+                    <section className={`${style["calendar"]} ${ isDueOpen ? style["calendar--show"] : ""}`}>
+                        <div className={`${style["calendar__head"]}`}>
+                            <button className={`${style["calendar__previous"]}`}><Image src={left} alt="left carret"/></button>
+                            <h2 className={`${style["calendar__date"]}`}>Aug 2021</h2>
+                            <button className={`${style["calendar__next"]}`}><Image src={right} alt="left carret"/></button>
+                        </div>
+                    </section>
                 </div>
             </fieldset>
         </form>
