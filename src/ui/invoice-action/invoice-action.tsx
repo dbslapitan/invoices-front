@@ -9,10 +9,28 @@ import right from "../../../public/icons/icon-arrow-right.svg";
 
 export default function InvoiceAction(){
 
-    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const [ due, setDue ] = useState((new Date()));
     const [ isDueOpen, setIsDueOpen ] = useState(false);
-    const toDate = `${due.getDate()} ${month[due.getMonth()]} ${due.getFullYear()}`;
+    const month = months[due.getMonth()];
+    const day = due.getDate();
+    const year = due.getFullYear();
+    const days = [];
+    const daysOfPrevious = (new Date(year, due.getMonth(), 0)).getDate();
+    const daysOfCurrent = (new Date(year, due.getMonth() + 1, 0)).getDate();
+    const dayOfWeek = (new Date(year, due.getMonth(), 1)).getDay();
+    for(let i = 0; i < 42; i++){
+        if(i < dayOfWeek){
+            days.push(daysOfPrevious - dayOfWeek + i + 1);
+        }
+        else if(i >= dayOfWeek && i <= daysOfCurrent + 1){
+            days.push(i - dayOfWeek + 1);
+        }
+        else{
+            days.push(i - daysOfCurrent - 1);
+        }
+
+    }
 
     const clickHandler = (e: MouseEvent) => {
         e.stopPropagation();
@@ -65,12 +83,30 @@ export default function InvoiceAction(){
                 </div>
                 <div className={`${style["fieldset__block"]} ${style["fieldset__block--due"]}`}>
                     <label className={`${style["fieldset__label"]}`} htmlFor="to-due">Invoice Date</label>
-                    <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={toDate} onClick={calendarHandler}/>
+                    <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`${day} ${month} ${year}`} onClick={calendarHandler}/>
                     <section className={`${style["calendar"]} ${ isDueOpen ? style["calendar--show"] : ""}`}>
                         <div className={`${style["calendar__head"]}`}>
                             <button className={`${style["calendar__previous"]}`}><Image src={left} alt="left carret"/></button>
                             <h2 className={`${style["calendar__date"]}`}>Aug 2021</h2>
                             <button className={`${style["calendar__next"]}`}><Image src={right} alt="left carret"/></button>
+                        </div>
+                        <div className={`${style["calendar__dates"]}`}>
+                            <p className={`${style["calendar__day"]} ${style["calendar__day--red"]}`}>Su</p>
+                            <p className={`${style["calendar__day"]}`}>Mo</p>
+                            <p className={`${style["calendar__day"]}`}>Tu</p>
+                            <p className={`${style["calendar__day"]}`}>We</p>
+                            <p className={`${style["calendar__day"]}`}>Th</p>
+                            <p className={`${style["calendar__day"]}`}>Fr</p>
+                            <p className={`${style["calendar__day"]}`}>Sa</p>
+                            {
+                                days.map((day, index) => {
+                                    return(
+                                        <div key={`${month}${year}${index}`} className={`${style["calendar__day"]}`}>
+                                            <label htmlFor="">{day}</label>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </section>
                 </div>
