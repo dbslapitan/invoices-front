@@ -56,6 +56,18 @@
                 width: 31.15%;
             }
         }
+
+        &--due{
+            position: relative;
+            &::after{
+                content: url("../../../public/icons/icon-calendar.svg");
+                width: 1rem;
+                height: 1rem;
+                position: absolute;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
     }
 
     &__label{
@@ -72,10 +84,15 @@
         padding: 1rem 1.25rem;
         max-height: 3rem;
         caret-color: $purple;
+        background-color: var(--input-bkg);
 
         &:focus{
             border: 1px solid $purple;
             outline: none;
+        }
+
+        &[type="button"]{
+            text-align: start;
         }
     }
 

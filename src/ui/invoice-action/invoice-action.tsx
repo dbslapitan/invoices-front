@@ -1,10 +1,14 @@
 "use client";
 
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 import Back from "../back/back";
 import style from "./invoice-action.module.scss";
 
 export default function InvoiceAction(){
+
+    const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    const [ due, setDue ] = useState((new Date()));
+    const toDate = `${due.getDate()} ${month[due.getMonth()]} ${due.getFullYear()}`;
 
     const clickHandler = (e: MouseEvent) => {
         e.stopPropagation();
@@ -50,6 +54,10 @@ export default function InvoiceAction(){
                 <div className={`${style["fieldset__block"]} ${style["fieldset__block--country"]}`}>
                     <label className={`${style["fieldset__label"]}`} htmlFor="to-country">Country</label>
                     <input className={`${style["fieldset__input"]}`} type="text" id="to-country" />
+                </div>
+                <div className={`${style["fieldset__block"]} ${style["fieldset__block--due"]}`}>
+                    <label className={`${style["fieldset__label"]}`} htmlFor="to-due">Invoice Date</label>
+                    <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={toDate}/>
                 </div>
             </fieldset>
         </form>
