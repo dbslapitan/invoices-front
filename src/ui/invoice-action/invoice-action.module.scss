@@ -158,6 +158,11 @@
         width: 100%;
         display: block;
         padding: 0.5rem 0;
+        
+        &:hover{
+            cursor: pointer;
+            color: $light-purple;
+        }
     }
 
     &__radio{

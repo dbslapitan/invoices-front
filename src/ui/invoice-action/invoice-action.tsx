@@ -34,6 +34,9 @@ export default function InvoiceAction(){
 
     const clickHandler = (e: MouseEvent) => {
         e.stopPropagation();
+        if(isDueOpen){
+            setIsDueOpen(false);
+        }
     };
 
     const calendarHandler = () => {
@@ -84,7 +87,7 @@ export default function InvoiceAction(){
                 <div className={`${style["fieldset__block"]} ${style["fieldset__block--due"]}`}>
                     <label className={`${style["fieldset__label"]}`} htmlFor="to-due">Invoice Date</label>
                     <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`${day} ${month} ${year}`} onClick={calendarHandler}/>
-                    <section className={`${style["calendar"]} ${ isDueOpen ? style["calendar--show"] : ""}`}>
+                    <section className={`${style["calendar"]} ${ isDueOpen ? style["calendar--show"] : ""}`} onClick={(e) => e.stopPropagation()}>
                         <div className={`${style["calendar__head"]}`}>
                             <button className={`${style["calendar__previous"]}`}><Image src={left} alt="left carret"/></button>
                             <h2 className={`${style["calendar__date"]}`}>Aug 2021</h2>
