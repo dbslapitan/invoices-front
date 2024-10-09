@@ -150,4 +150,23 @@
             color: $red;
         }
     }
+
+    &__radio{
+        display: none;
+
+        &:disabled{
+            
+            & + label{
+                color: var(--calendar-disable);
+                opacity: 0.2;
+            }
+        }
+
+        &:checked{
+
+            & + label{
+                color: $purple;
+            }
+        }
+    }
 }

@@ -102,8 +102,8 @@ export default function InvoiceAction(){
                                 days.map((day, index) => {
                                     return(
                                         <div key={`${month}${year}${index}`} className={`${style["calendar__day"]}`}>
+                                            <input className={`${style["calendar__radio"]}`} type="radio" id={`${month}${year}${index}`} value={day} name="calendar" disabled={index < dayOfWeek || daysOfCurrent < index + 1}/>
                                             <label htmlFor="">{day}</label>
-                                            
                                         </div>
                                     )
                                 })

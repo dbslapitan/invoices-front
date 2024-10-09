@@ -14,6 +14,7 @@
     --input-border: 1px solid #{$light-gray};
     --overlay-bkg: #FFFFFF;
     --input-bkb: #FFFFFF;
+    --calendar-disable: #{$blacker};
 }
 
 [data-theme='dark']{
@@ -29,6 +30,7 @@
     --input-border: 1px solid #{$blue};
     --overlay-bkg: #{$black};
     --input-bkg: #{$dark-blue};
+    --calendar-disable: #{$light-gray};
 }
 
 html{
