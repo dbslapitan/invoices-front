@@ -91,19 +91,19 @@ export default function InvoiceAction(){
                             <button className={`${style["calendar__next"]}`}><Image src={right} alt="left carret"/></button>
                         </div>
                         <div className={`${style["calendar__dates"]}`}>
-                            <p className={`${style["calendar__day"]} ${style["calendar__day--red"]}`}>Su</p>
-                            <p className={`${style["calendar__day"]}`}>Mo</p>
-                            <p className={`${style["calendar__day"]}`}>Tu</p>
-                            <p className={`${style["calendar__day"]}`}>We</p>
-                            <p className={`${style["calendar__day"]}`}>Th</p>
-                            <p className={`${style["calendar__day"]}`}>Fr</p>
-                            <p className={`${style["calendar__day"]}`}>Sa</p>
+                            <p className={`${style["calendar__day"]} ${style["calendar__day--red"]} ${style["calendar__day--padding"]}`}>Su</p>
+                            <p className={`${style["calendar__day"]} ${style["calendar__day--padding"]}`}>Mo</p>
+                            <p className={`${style["calendar__day"]} ${style["calendar__day--padding"]}`}>Tu</p>
+                            <p className={`${style["calendar__day"]} ${style["calendar__day--padding"]}`}>We</p>
+                            <p className={`${style["calendar__day"]} ${style["calendar__day--padding"]}`}>Th</p>
+                            <p className={`${style["calendar__day"]} ${style["calendar__day--padding"]}`}>Fr</p>
+                            <p className={`${style["calendar__day"]} ${style["calendar__day--padding"]}`}>Sa</p>
                             {
                                 days.map((day, index) => {
                                     return(
                                         <div key={`${month}${year}${index}`} className={`${style["calendar__day"]}`}>
                                             <input className={`${style["calendar__radio"]}`} type="radio" id={`${month}${year}${index}`} value={day} name="calendar" disabled={index < dayOfWeek || daysOfCurrent < index + 1}/>
-                                            <label htmlFor="">{day}</label>
+                                            <label className={`${style["calendar__label"]}`} htmlFor={`${month}${year}${index}`}>{day}</label>
                                         </div>
                                     )
                                 })
