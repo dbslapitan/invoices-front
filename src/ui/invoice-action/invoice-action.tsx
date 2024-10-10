@@ -7,26 +7,42 @@ import Image from "next/image";
 import left from "../../../public/icons/icon-arrow-left.svg";
 import right from "../../../public/icons/icon-arrow-right.svg";
 
-export default function InvoiceAction(){
+export default function InvoiceAction() {
 
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    const [ dueDate, setDueDate ] = useState(new Date((new Date()).getFullYear(), (new Date()).getMonth(), (new Date()).getDate()));
-    const [ isDueOpen, setIsDueOpen ] = useState(false);
-    const [ monthToDisplay, setMonthToDisplay ] = useState(new Date(dueDate.getFullYear(), dueDate.getMonth(), 1));
+    const [dueDate, setDueDate] = useState(new Date((new Date()).getFullYear(), (new Date()).getMonth(), (new Date()).getDate()));
+    const [isDueOpen, setIsDueOpen] = useState(false);
+    const [isTermsOpen, setIsTermsOpen] = useState(false);
+    const [monthToDisplay, setMonthToDisplay] = useState(new Date(dueDate.getFullYear(), dueDate.getMonth(), 1));
     const days = [];
     const dayOfWeek = monthToDisplay.getDay();
-    for(let i = 0; i < 42; i++){
+    for (let i = 0; i < 42; i++) {
         days.push(new Date(monthToDisplay.getFullYear(), monthToDisplay.getMonth(), i + 1 - dayOfWeek));
     }
 
-    const clickHandler = (e: MouseEvent) => {
+    const formHandler = (e: MouseEvent) => {
         e.stopPropagation();
         if(isDueOpen){
             setIsDueOpen(false);
         }
+        if(isTermsOpen){
+            setIsTermsOpen(false);
+        }
     };
 
-    const calendarHandler = () => {
+    const termClickHandler = (e: MouseEvent) => {
+        e.stopPropagation();
+        if(isDueOpen){
+            setIsDueOpen(false);
+        }
+        setIsTermsOpen(!isTermsOpen);
+    };
+
+    const dueClickHandler = (e: MouseEvent) => {
+        e.stopPropagation();
+        if(isTermsOpen){
+            setIsTermsOpen(false);
+        }
         setIsDueOpen(!isDueOpen);
     };
 
@@ -34,12 +50,8 @@ export default function InvoiceAction(){
         setDueDate(new Date(Number((e.target as HTMLInputElement).value)));
     };
 
-    const pushClose = () => {
-
-    }
-
-    return(
-        <form className={`${style["action"]}`} onClick={clickHandler} onSubmit={() => console.log("onSubmit")}>
+    return (
+        <form className={`${style["action"]}`} onClick={formHandler} onSubmit={() => console.log("onSubmit")}>
             <Back />
             <h1 className={`${style["action__title"]}`}>New Invoice</h1>
             <fieldset className={`${style["fieldset"]}`}>
@@ -81,12 +93,12 @@ export default function InvoiceAction(){
                 </div>
                 <div className={`${style["fieldset__block"]} ${style["fieldset__block--due"]}`}>
                     <label className={`${style["fieldset__label"]}`} htmlFor="to-due">Invoice Date</label>
-                    <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`${dueDate.getDate()} ${months[dueDate.getMonth()]} ${dueDate.getFullYear()}`} onClick={calendarHandler}/>
-                    <section className={`${style["calendar"]} ${ isDueOpen ? style["calendar--show"] : ""}`} onClick={(e) => e.stopPropagation()}>
+                    <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`${dueDate.getDate()} ${months[dueDate.getMonth()]} ${dueDate.getFullYear()}`} onClick={dueClickHandler}/>
+                    <section className={`${style["calendar"]} ${isDueOpen ? style["calendar--show"] : ""}`} onClick={(e) => e.stopPropagation()}>
                         <div className={`${style["calendar__head"]}`}>
-                            <button className={`${style["calendar__previous"]}`}><Image src={left} alt="left carret"/></button>
+                            <button className={`${style["calendar__previous"]}`}><Image src={left} alt="left carret" /></button>
                             <h2 className={`${style["calendar__date"]}`}>{`${months[monthToDisplay.getMonth()]} ${monthToDisplay.getFullYear()}`}</h2>
-                            <button className={`${style["calendar__next"]}`}><Image src={right} alt="left carret"/></button>
+                            <button className={`${style["calendar__next"]}`}><Image src={right} alt="left carret" /></button>
                         </div>
                         <div className={`${style["calendar__dates"]}`}>
                             <p className={`${style["calendar__day"]} ${style["calendar__day--red"]} ${style["calendar__day--padding"]}`}>Su</p>
@@ -98,11 +110,11 @@ export default function InvoiceAction(){
                             <p className={`${style["calendar__day"]} ${style["calendar__day--padding"]}`}>Sa</p>
                             {
                                 days.map(day => {
-                                    return(
+                                    return (
                                         <div key={day.getTime()} className={`${style["calendar__day"]}`}>
-                                            <input className={`${style["calendar__radio"]}`} type="radio" id={`${day.getTime()}`} value={day.getTime()} name="calendar" 
-                                            disabled={day.getTime() < monthToDisplay.getTime() || day.getTime() > (new Date((new Date(monthToDisplay.getTime())).setMonth(monthToDisplay.getMonth() + 1)).setDate(0))}
-                                            defaultChecked={dueDate.getTime() === day.getTime()} onChange={onCheckHandler}/>
+                                            <input className={`${style["calendar__radio"]}`} type="radio" id={`${day.getTime()}`} value={day.getTime()} name="calendar"
+                                                disabled={day.getTime() < monthToDisplay.getTime() || day.getTime() > (new Date((new Date(monthToDisplay.getTime())).setMonth(monthToDisplay.getMonth() + 1)).setDate(0))}
+                                                defaultChecked={dueDate.getTime() === day.getTime()} onChange={onCheckHandler} />
                                             <label className={`${style["calendar__label"]}`} htmlFor={`${day.getTime()}`}>{day.getDate()}</label>
                                         </div>
                                     )
@@ -110,6 +122,16 @@ export default function InvoiceAction(){
                             }
                         </div>
                     </section>
+                </div>
+                <div className={`${style["fieldset__block"]} ${style["fieldset__block--country"]}`}>
+                    <label className={`${style["fieldset__label"]}`} htmlFor="to-terms">Payment Terms</label>
+                    <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`Net ${1} Day`}  onClick={termClickHandler}/>
+                    <div className={`${style["select"]} ${isTermsOpen ? style["select--show"] : ""}`}>
+                        <button type="button" className={`${style["select__option"]}`}>Net 1 Day</button>
+                        <button type="button" className={`${style["select__option"]}`}>Net 7 Days</button>
+                        <button type="button" className={`${style["select__option"]}`}>Net 14 Days</button>
+                        <button type="button" className={`${style["select__option"]}`}>Net 30 Days</button>
+                    </div>
                 </div>
             </fieldset>
         </form>
