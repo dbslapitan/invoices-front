@@ -141,6 +141,10 @@ export default function InvoiceAction() {
                         <button type="button" className={`${style["select__option"]}`}>Net 30 Days</button>
                     </div>
                 </div>
+                <div className={`${style["fieldset__block"]} ${style["fieldset__block"]}`}>
+                    <label className={`${style["fieldset__label"]}`} htmlFor="to-description">Project Description</label>
+                    <input className={`${style["fieldset__input"]}`} type="text" id="to-description" />
+                </div>
             </fieldset>
         </form>
     );
