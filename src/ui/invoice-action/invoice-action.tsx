@@ -131,7 +131,7 @@ export default function InvoiceAction() {
                         </div>
                     </section>
                 </div>
-                <div className={`${style["fieldset__block"]} ${style["fieldset__block--country"]}`}>
+                <div className={`${style["fieldset__block"]} ${style["fieldset__block--term"]}`}>
                     <label className={`${style["fieldset__label"]}`} htmlFor="to-terms">Payment Terms</label>
                     <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`Net ${1} Day`}  onClick={termClickHandler}/>
                     <div className={`${style["select"]} ${isTermsOpen ? style["select--show"] : ""}`}>

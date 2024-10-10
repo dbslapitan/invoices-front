@@ -95,6 +95,10 @@ input[type="checkbox"]{
     all: unset;
 }
 
+input[type="button"]{
+    cursor: pointer;
+}
+
 input[type="checkbox"] + label{
     @include heading-sv;
     position: relative;

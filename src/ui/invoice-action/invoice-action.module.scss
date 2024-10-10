@@ -59,6 +59,11 @@
 
         &--due{
             position: relative;
+            
+            @include tablet{
+                width: 47.6%;
+            }
+
             &::after{
                 content: url("../../../public/icons/icon-calendar.svg");
                 width: 1rem;
@@ -66,6 +71,14 @@
                 position: absolute;
                 bottom: 1rem;
                 right: 1rem;
+            }
+        }
+
+        &--term{
+            position: relative;
+            
+            @include tablet{
+                width: 47.6%;
             }
         }
     }
@@ -184,11 +197,12 @@
 
 .select{
     width: 100%;
-    margin-top: 1.5rem;
     box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0.25);
     background-color: var(--input-bkg);
     border-radius: 0.5rem;
     display: none;
+    position: absolute;
+    top: calc(100% + 1.5rem);
 
     &--show{
         display: block;
