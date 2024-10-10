@@ -34,6 +34,10 @@ export default function InvoiceAction(){
         setDueDate(new Date(Number((e.target as HTMLInputElement).value)));
     };
 
+    const pushClose = () => {
+
+    }
+
     return(
         <form className={`${style["action"]}`} onClick={clickHandler} onSubmit={() => console.log("onSubmit")}>
             <Back />
