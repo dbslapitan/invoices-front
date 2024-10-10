@@ -50,6 +50,14 @@ export default function InvoiceAction() {
         setDueDate(new Date(Number((e.target as HTMLInputElement).value)));
     };
 
+    const previousMonthHandler = () => {
+        setMonthToDisplay(new Date(monthToDisplay.setMonth(monthToDisplay.getMonth() - 1)));
+    };
+
+    const nextMonthHandler = () => {
+        setMonthToDisplay(new Date(monthToDisplay.setMonth(monthToDisplay.getMonth() + 1)));
+    };
+
     return (
         <form className={`${style["action"]}`} onClick={formHandler} onSubmit={() => console.log("onSubmit")}>
             <Back />
@@ -96,9 +104,9 @@ export default function InvoiceAction() {
                     <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`${dueDate.getDate()} ${months[dueDate.getMonth()]} ${dueDate.getFullYear()}`} onClick={dueClickHandler}/>
                     <section className={`${style["calendar"]} ${isDueOpen ? style["calendar--show"] : ""}`} onClick={(e) => e.stopPropagation()}>
                         <div className={`${style["calendar__head"]}`}>
-                            <button className={`${style["calendar__previous"]}`}><Image src={left} alt="left carret" /></button>
+                            <button type="button" className={`${style["calendar__previous"]}`} onClick={previousMonthHandler}><Image src={left} alt="left carret" /></button>
                             <h2 className={`${style["calendar__date"]}`}>{`${months[monthToDisplay.getMonth()]} ${monthToDisplay.getFullYear()}`}</h2>
-                            <button className={`${style["calendar__next"]}`}><Image src={right} alt="left carret" /></button>
+                            <button type="button" className={`${style["calendar__next"]}`}><Image src={right} alt="left carret" onClick={nextMonthHandler}/></button>
                         </div>
                         <div className={`${style["calendar__dates"]}`}>
                             <p className={`${style["calendar__day"]} ${style["calendar__day--red"]} ${style["calendar__day--padding"]}`}>Su</p>
@@ -113,7 +121,7 @@ export default function InvoiceAction() {
                                     return (
                                         <div key={day.getTime()} className={`${style["calendar__day"]}`}>
                                             <input className={`${style["calendar__radio"]}`} type="radio" id={`${day.getTime()}`} value={day.getTime()} name="calendar"
-                                                disabled={day.getTime() < monthToDisplay.getTime() || day.getTime() > (new Date((new Date(monthToDisplay.getTime())).setMonth(monthToDisplay.getMonth() + 1)).setDate(0))}
+                                                disabled={day.getTime() < monthToDisplay.getTime() || day.getTime() > (new Date((new Date(monthToDisplay.getTime())).setMonth(monthToDisplay.getMonth() + 1)).setDate(0)) || day.getTime() < (new Date((new Date().getFullYear()), (new Date()).getMonth(), (new Date()).getDate()).getTime())}
                                                 defaultChecked={dueDate.getTime() === day.getTime()} onChange={onCheckHandler} />
                                             <label className={`${style["calendar__label"]}`} htmlFor={`${day.getTime()}`}>{day.getDate()}</label>
                                         </div>
