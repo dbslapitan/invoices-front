@@ -6,6 +6,8 @@ import style from "./invoice-action.module.scss";
 import Image from "next/image";
 import left from "../../../public/icons/icon-arrow-left.svg";
 import right from "../../../public/icons/icon-arrow-right.svg";
+import {v4 as uuidv4} from "uuid";
+import trash from "../../../public/icons/icon-delete.svg";
 
 export default function InvoiceAction() {
 
@@ -16,6 +18,15 @@ export default function InvoiceAction() {
     const [monthToDisplay, setMonthToDisplay] = useState(new Date(dueDate.getFullYear(), dueDate.getMonth(), 1));
     const days = [];
     const dayOfWeek = monthToDisplay.getDay();
+
+    const items = [{
+        id: uuidv4(),
+        name: "",
+        qty: "",
+        price: "",
+        total: ""
+    }];
+
     for (let i = 0; i < 42; i++) {
         days.push(new Date(monthToDisplay.getFullYear(), monthToDisplay.getMonth(), i + 1 - dayOfWeek));
     }
@@ -146,7 +157,34 @@ export default function InvoiceAction() {
                     <input className={`${style["fieldset__input"]}`} type="text" id="to-description" />
                 </div>
             </fieldset>
-            
+            <fieldset className={`${style["fieldset"]} ${style["fieldset__items"]}`}>
+                <legend className={`${style["fieldset__legend"]} ${style["fieldset__legend--large"]}`}>Item List</legend>
+                    {
+                        items.map((item, index) => {
+                            return(
+                                <div key={item.id} className={`${style["item"]}`}>
+                                    <div className={`${style["fieldset__block"]} ${style["item__container"]}  ${style["item__container--name"]}`}>
+                                        <label className={`${style["fieldset__label"]} ${style["item__label"]}`} htmlFor={`name-${index}`}>Item Name</label>
+                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="text" id={`name-${index}`} />
+                                    </div>
+                                    <div className={`${style["fieldset__block"]} ${style["item__container"]}  ${style["item__container--qty"]}`}>
+                                        <label className={`${style["fieldset__label"]} ${style["item__label"]}`} htmlFor={`qty-${index}`}>Qty.</label>
+                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="text" id={`qty-${index}`} />
+                                    </div>
+                                    <div className={`${style["fieldset__block"]} ${style["item__container"]}  ${style["item__container--price"]}`}>
+                                        <label className={`${style["fieldset__label"]} ${style["item__label"]}`} htmlFor={`price-${index}`}>Price</label>
+                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="text" id={`price-${index}`} />
+                                    </div>
+                                    <div className={`${style["fieldset__block"]} ${style["item__container"]}  ${style["item__container--total"]}`}>
+                                        <p className={`${style["fieldset__label"]} ${style["item__label"]}`}>Total</p>
+                                        <p className={`${style["item__input--total"]}`}>1</p>
+                                    </div>
+                                        <button type="button" className={`${style["item__delete"]}`}><Image className={`${style["item__trash"]}`} src={trash} alt="trash can"></Image></button>
+                                </div>
+                            );
+                        })
+                    }
+            </fieldset>
         </form>
     );
 }
