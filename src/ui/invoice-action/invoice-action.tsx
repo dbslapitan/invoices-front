@@ -111,8 +111,12 @@ export default function InvoiceAction() {
         }
     }
 
+    const submitHandler = (e: FormEvent) => {
+        e.preventDefault();
+    };
+
     return (
-        <form className={`${style["action"]}`} onClick={formHandler} onSubmit={() => console.log("onSubmit")}>
+        <form className={`${style["action"]}`} onClick={formHandler} onSubmit={submitHandler}>
             <Back />
             <h1 className={`${style["action__title"]}`}>New Invoice</h1>
             <fieldset className={`${style["fieldset"]}`}>

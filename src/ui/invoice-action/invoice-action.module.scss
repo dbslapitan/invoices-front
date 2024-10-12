@@ -9,7 +9,7 @@
 
     @include mid{
         border-radius: 0 1.25rem 1.25rem 0;
-        padding: 3.6875rem 0 2rem 0;
+        padding: 3.6875rem 0 0 0;
     }
 
     &__title{
@@ -136,6 +136,7 @@
         padding: 0.9375rem 1.25rem 0.875rem;
         caret-color: $purple;
         background-color: var(--input-bkg);
+        max-height: 3rem;
 
         &:focus{
             border: 1px solid $purple;
@@ -282,17 +283,28 @@
 
         &--name{
 
-            &> input{
-                margin-top: 0.935rem;
+            @include mid{
+                width: 42.46%;
             }
         }
 
         &--qty{
+            max-width: 4rem;
             width: 19.57%;
+
+            @include mid{
+                width: 12.7%;
+            }
+
         }
 
         &--price{
             width: 30.58%;
+            
+            @include mid{
+                max-width: 6.25rem;
+                width: 19.84%;
+            }
         }
 
         &--total{
@@ -306,6 +318,7 @@
     }
 
     &__input{
+        margin-top: 0.9375rem;
 
         &--total{
             @include heading-sv;
@@ -327,6 +340,10 @@
         color: var(--action-lbl);
         padding: 1.1875rem 0 0.875rem;
         border-radius: 1.5rem;
+
+        @include mid{
+            margin-top: 1.125rem;
+        }
     }
 }
 
@@ -337,11 +354,24 @@
     padding: 1.3125rem 1.5rem 1.5rem 1.375rem;
     justify-content: space-between;
 
+    @include mid{
+        background-color: inherit;
+        border-radius: 0 0 1.25rem 0;
+        padding:  0 3.5rem 2rem 3.5rem;
+        column-gap: 0.5rem;
+        justify-content: flex-end;
+        margin-top: 3rem;
+    }
+
     &__discard{
         @include heading-sv;
         padding: 1.125rem 1.125rem 0.9375rem;
         color: var(--invoice-due);
         border-radius: 1.5rem;
+
+        @include mid{
+            display: none;
+        }
     }
 
     &__draft{
