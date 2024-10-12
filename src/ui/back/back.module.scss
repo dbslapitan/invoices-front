@@ -3,6 +3,11 @@
 
 .back{
     @include heading-sv;
+    margin-left: 1.5rem;
+
+    @include mid{
+        margin-left: 3.5rem;
+    }
 
     &::before{
         content: url("../../../public/icons/icon-arrow-left.svg");

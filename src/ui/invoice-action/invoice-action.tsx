@@ -227,6 +227,7 @@ export default function InvoiceAction() {
                     }
                     <button className={`btn--secondary ${style["item__add"]}`} type="button" onClick={addItem} ref={addRef}>+ Add New Item</button>
             </fieldset>
+            <div className={`${style["action__gradient"]}`}></div>
         </form>
     );
 }
