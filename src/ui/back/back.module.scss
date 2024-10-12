@@ -6,7 +6,7 @@
     margin-left: 1.5rem;
 
     @include mid{
-        margin-left: 3.5rem;
+        display: none;
     }
 
     &::before{
