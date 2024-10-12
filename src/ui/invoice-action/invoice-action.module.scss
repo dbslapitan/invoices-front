@@ -290,6 +290,15 @@
     }
 
     &__delete{
-        padding-top: 1.625rem;
+        padding-top: 1.25rem;
+    }
+
+    &__add{
+        @include heading-sv;
+        margin-top: 3rem;
+        width: 100%;
+        color: var(--action-lbl);
+        padding: 1.1875rem 0 0.875rem;
+        border-radius: 1.5rem;
     }
 }

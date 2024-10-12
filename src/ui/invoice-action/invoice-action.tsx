@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, MouseEvent, useState } from "react";
+import { FormEvent, MouseEvent, MutableRefObject, useEffect, useRef, useState } from "react";
 import Back from "../back/back";
 import style from "./invoice-action.module.scss";
 import Image from "next/image";
@@ -19,17 +19,30 @@ export default function InvoiceAction() {
     const days = [];
     const dayOfWeek = monthToDisplay.getDay();
 
-    const items = [{
+    const addRef: MutableRefObject<null | HTMLButtonElement> = useRef(null);
+    const isScrollDown = useRef(false);
+
+    const [items, setItems] = useState([{
         id: uuidv4(),
         name: "",
         qty: "",
         price: "",
         total: ""
-    }];
+    }]);
 
     for (let i = 0; i < 42; i++) {
         days.push(new Date(monthToDisplay.getFullYear(), monthToDisplay.getMonth(), i + 1 - dayOfWeek));
     }
+
+    useEffect(() => {
+        if(isScrollDown.current){
+            (addRef.current as HTMLButtonElement).scrollIntoView({
+                behavior: "smooth"
+            });
+            isScrollDown.current = false;
+        }
+        
+    });
 
     const formHandler = (e: MouseEvent) => {
         e.stopPropagation();
@@ -68,6 +81,34 @@ export default function InvoiceAction() {
     const nextMonthHandler = () => {
         setMonthToDisplay(new Date(monthToDisplay.setMonth(monthToDisplay.getMonth() + 1)));
     };
+
+    const addItem = () => {
+        setItems([...items, {
+            id: uuidv4(),
+            name: "",
+            qty: "",
+            price: "",
+            total: ""}
+        ]);
+
+        isScrollDown.current = true;
+    };
+
+    const deleteItem = (index: number) => {
+
+        if(items.length === 1){
+            setItems([{
+                id: uuidv4(),
+                name: "",
+                qty: "",
+                price: "",
+                total: ""}
+            ]);
+        }
+        else{
+            setItems([...items].toSpliced(index, 1));
+        }
+    }
 
     return (
         <form className={`${style["action"]}`} onClick={formHandler} onSubmit={() => console.log("onSubmit")}>
@@ -179,11 +220,12 @@ export default function InvoiceAction() {
                                         <p className={`${style["fieldset__label"]} ${style["item__label"]}`}>Total</p>
                                         <p className={`${style["item__input--total"]}`}>1</p>
                                     </div>
-                                        <button type="button" className={`${style["item__delete"]}`}><Image className={`${style["item__trash"]}`} src={trash} alt="trash can"></Image></button>
+                                        <button type="button" className={`${style["item__delete"]}`} onClick={() => deleteItem(index)}><Image src={trash} alt="trash can"></Image></button>
                                 </div>
                             );
                         })
                     }
+                    <button className={`btn--secondary ${style["item__add"]}`} type="button" onClick={addItem} ref={addRef}>+ Add New Item</button>
             </fieldset>
         </form>
     );

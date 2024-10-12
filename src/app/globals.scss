@@ -15,6 +15,7 @@
     --overlay-bkg: #FFFFFF;
     --input-bkg: #FFFFFF;
     --calendar-disable: #{$blacker};
+    --btn-secondary: #F9FAFE;
 }
 
 [data-theme='dark']{
@@ -31,6 +32,7 @@
     --overlay-bkg: #{$black};
     --input-bkg: #{$dark-blue};
     --calendar-disable: #{$light-gray};
+    --btn-secondary: #{$blue};
 }
 
 html{
@@ -137,10 +139,18 @@ fieldset{
     border: none;
 }
 
-.btn--purple{
-    background-color: $purple;
+.btn{
 
-    &:hover{
-        background-color: $light-purple;
+    &--purple{
+        background-color: $purple;
+    
+        &:hover{
+            background-color: $light-purple;
+        }
+    }
+
+    &--secondary{
+        background-color: var(--btn-secondary);
     }
 }
+
