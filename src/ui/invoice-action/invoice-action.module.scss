@@ -329,3 +329,33 @@
         border-radius: 1.5rem;
     }
 }
+
+.buttons{
+    display: flex;
+    background-color: var(--invoice-bkg);
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.10);
+    padding: 1.3125rem 1.5rem 1.5rem 1.375rem;
+    justify-content: space-between;
+
+    &__discard{
+        @include heading-sv;
+        padding: 1.125rem 1.125rem 0.9375rem;
+        color: var(--invoice-due);
+        border-radius: 1.5rem;
+    }
+
+    &__draft{
+        @include heading-sv;
+        padding: 1.125rem 0.9375rem 0.9375rem;
+        color: var(--invoice-due);
+        border-radius: 1.5rem;
+        background-color: #373B53;
+    }
+
+    &__save{
+        @include heading-sv;
+        padding: 1.125rem 1rem 0.9375rem;
+        color: #FFF;
+        border-radius: 1.5rem;
+    }
+}

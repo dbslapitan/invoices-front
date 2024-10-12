@@ -230,6 +230,11 @@ export default function InvoiceAction() {
                     <button className={`btn--secondary ${style["item__add"]}`} type="button" onClick={addItem} ref={addRef}>+ Add New Item</button>
             </fieldset>
             <div className={`${style["action__gradient"]}`}></div>
+            <div className={`${style["buttons"]}`}>
+                <button type="button" className={`${style["buttons__discard"]} btn--secondary`}>Discard</button>
+                <button type="button" className={`${style["buttons__draft"]}`}>Save as Draft</button>
+                <button type="submit" className={`${style["buttons__save"]} btn--purple`}>Save & Send</button>
+            </div>
         </form>
     );
 }
