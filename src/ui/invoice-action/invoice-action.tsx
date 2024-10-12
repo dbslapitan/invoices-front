@@ -8,6 +8,7 @@ import left from "../../../public/icons/icon-arrow-left.svg";
 import right from "../../../public/icons/icon-arrow-right.svg";
 import {v4 as uuidv4} from "uuid";
 import trash from "../../../public/icons/icon-delete.svg";
+import chevron from "../../../public/icons/icon-arrow-down.svg";
 
 export default function InvoiceAction() {
 
@@ -184,6 +185,7 @@ export default function InvoiceAction() {
                     </section>
                 </div>
                 <div className={`${style["fieldset__block"]} ${style["fieldset__block--term"]}`}>
+                    <Image className={`${style["fieldset__block--chevron"]}`} src={chevron} alt="chevron right"></Image>
                     <label className={`${style["fieldset__label"]}`} htmlFor="to-terms">Payment Terms</label>
                     <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`Net ${1} Day`}  onClick={termClickHandler}/>
                     <div className={`${style["select"]} ${isTermsOpen ? style["select--show"] : ""}`}>

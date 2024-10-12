@@ -93,7 +93,7 @@
         &--due{
             position: relative;
             
-            @include tablet{
+            @include mid{
                 width: 47.6%;
             }
 
@@ -110,9 +110,15 @@
         &--term{
             position: relative;
             
-            @include tablet{
+            @include mid{
                 width: 47.6%;
             }
+        }
+
+        &--chevron{
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
         }
     }
 
