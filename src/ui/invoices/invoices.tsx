@@ -26,7 +26,6 @@ export default function Invoices(){
             <Invoice />
             <Invoice />
             <Invoice />
-            <Invoice />
         </section>
     );
 }
