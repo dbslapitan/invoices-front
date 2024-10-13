@@ -57,7 +57,7 @@ body{
 
     @include desktop{
         display: grid;
-        grid-template-rows: 100%;
+        grid-template-rows: 100vh;
         grid-template-columns: fit-content(0) auto;
         grid-template-areas: "header main";
     }
@@ -76,6 +76,7 @@ main{
 
     @include desktop{
         grid-area: main;
+        overflow-y: auto;
     }
 }
 

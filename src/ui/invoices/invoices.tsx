@@ -11,6 +11,22 @@ export default function Invoices(){
             <InvoicesHeader />
             <Invoice />
             <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
+            <Invoice />
         </section>
     );
 }

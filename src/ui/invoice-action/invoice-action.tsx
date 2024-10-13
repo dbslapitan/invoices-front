@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, MouseEvent, MutableRefObject, useEffect, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, MouseEvent, MutableRefObject, useEffect, useRef, useState } from "react";
 import Back from "../back/back";
 import style from "./invoice-action.module.scss";
 import Image from "next/image";
@@ -138,12 +138,40 @@ export default function InvoiceAction() {
 
     const submitHandler = (e: FormEvent) => {
         e.preventDefault();
+        const temp = JSON.parse(JSON.stringify(invoice));
+        (temp as Invoice).invoiceDate = dueDate.getTime();
+        (temp as Invoice).items = items;
+        console.log(temp);
+        setInvoice(temp);
     };
 
     const termHandler = (term: number) => {
         const temp = JSON.parse(JSON.stringify(invoice));
         (temp as Invoice).terms = term;
         setInvoice(temp);
+    };
+
+    const changeInput = (e: ChangeEvent, direction: string = "") => {
+        const temp = JSON.parse(JSON.stringify(invoice));
+        const target = (e.target as HTMLInputElement);
+        invoice["billFrom"]["city"]
+        if(direction === "from"){
+            temp["billFrom"][target.name] = target.value;
+        }
+        else if(direction === "from"){
+            temp["billTo"][target.name] = target.value;
+        }
+        else{
+            temp[target.name] = target.value;
+        }
+        setInvoice(temp);
+    }
+
+    const itemHandler = (e: ChangeEvent, index: number) => {
+        const temp = JSON.parse(JSON.stringify(items));;
+        const target = (e.target as HTMLInputElement);
+        temp[index][target.name] = target.value;
+        setItems(temp);
     };
 
     return (
@@ -156,42 +184,42 @@ export default function InvoiceAction() {
                     <legend className={`${style["fieldset__legend"]}`}>Bill From</legend>
                     <div className={`${style["fieldset__block"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="from-street">Street Address</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="from-street" defaultValue={invoice.billFrom.street} />
+                        <input className={`${style["fieldset__input"]}`} type="text" id="from-street" name="street" onChange={(e) => changeInput(e, "from")} defaultValue={invoice.billFrom.street} />
                     </div>
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--city"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="from-city">City</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="from-city" defaultValue={invoice.billFrom.city} />
+                        <input className={`${style["fieldset__input"]}`} type="text" id="from-city" name="city" onChange={(e) => changeInput(e, "from")} defaultValue={invoice.billFrom.city} />
                     </div>
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--postal"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="from-postal">Post Code</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="from-postal" defaultValue={invoice.billFrom.postal} />
+                        <input className={`${style["fieldset__input"]}`} type="text" id="from-postal" name="postal" onChange={(e) => changeInput(e, "from")} defaultValue={invoice.billFrom.postal} />
                     </div>
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--country"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="from-country">Country</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="from-country" defaultValue={invoice.billFrom.country} />
+                        <input className={`${style["fieldset__input"]}`} type="text" id="from-country" name="country" onChange={(e) => changeInput(e, "from")} defaultValue={invoice.billFrom.country} />
                     </div>
                 </fieldset>
                 <fieldset className={`${style["fieldset"]} ${style["fieldset--to"]}`}>
                     <legend className={`${style["fieldset__legend"]}`}>Bill To</legend>
                     <div className={`${style["fieldset__block"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="to-street">Street Address</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="to-street" defaultValue={invoice.billTo.street} />
+                        <input className={`${style["fieldset__input"]}`} type="text" id="to-street" name="street" onChange={(e) => changeInput(e, "to")} defaultValue={invoice.billTo.street} />
                     </div>
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--city"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="to-city">City</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="to-city"  defaultValue={invoice.billTo.city}/>
+                        <input className={`${style["fieldset__input"]}`} type="text" id="to-city" name="city" onChange={(e) => changeInput(e, "to")} defaultValue={invoice.billTo.city}/>
                     </div>
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--postal"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="to-postal">Post Code</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="to-postal" defaultValue={invoice.billTo.postal} />
+                        <input className={`${style["fieldset__input"]}`} type="text" id="to-postal" name="postal" onChange={(e) => changeInput(e, "to")} defaultValue={invoice.billTo.postal} />
                     </div>
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--country"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="to-country">Country</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="to-country" defaultValue={invoice.billTo.country} />
+                        <input className={`${style["fieldset__input"]}`} type="text" id="to-country" name="country" onChange={(e) => changeInput(e, "to")} defaultValue={invoice.billTo.country} />
                     </div>
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--due"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="to-due">Invoice Date</label>
-                        <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`${dueDate.getDate()} ${months[dueDate.getMonth()]} ${dueDate.getFullYear()}`} onClick={dueClickHandler} />
+                        <input type="button" className={`${style["fieldset__input"]}`} id="to-due" name="date" value={`${dueDate.getDate()} ${months[dueDate.getMonth()]} ${dueDate.getFullYear()}`} onClick={dueClickHandler} />
                         <section className={`${style["calendar"]} ${isDueOpen ? style["calendar--show"] : ""}`} onClick={(e) => e.stopPropagation()}>
                             <div className={`${style["calendar__head"]}`}>
                                 <button type="button" className={`${style["calendar__previous"]}`} onClick={previousMonthHandler}><Image src={left} alt="left carret" /></button>
@@ -224,7 +252,7 @@ export default function InvoiceAction() {
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--term"]}`}>
                         <Image className={`${style["fieldset__block--chevron"]}`} src={chevron} alt="chevron right"></Image>
                         <label className={`${style["fieldset__label"]}`} htmlFor="to-terms">Payment Terms</label>
-                        <input type="button" className={`${style["fieldset__input"]}`} id="to-due" value={`Net ${invoice.terms} Day`} onClick={termClickHandler} />
+                        <input type="button" className={`${style["fieldset__input"]}`} id="to-due" name="term" value={`Net ${invoice.terms} Day`} onClick={termClickHandler} />
                         <div className={`${style["select"]} ${isTermsOpen ? style["select--show"] : ""}`}>
                             <button type="button" className={`${style["select__option"]}`} onClick={() => termHandler(1)}>Net 1 Day</button>
                             <button type="button" className={`${style["select__option"]}`} onClick={() => termHandler(7)}>Net 7 Days</button>
@@ -234,7 +262,7 @@ export default function InvoiceAction() {
                     </div>
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block"]}`}>
                         <label className={`${style["fieldset__label"]}`} htmlFor="to-description">Project Description</label>
-                        <input className={`${style["fieldset__input"]}`} type="text" id="to-description" />
+                        <input className={`${style["fieldset__input"]}`} type="text" id="to-description"  onChange={(e) => changeInput(e)} name="description" />
                     </div>
                 </fieldset>
                 <fieldset className={`${style["fieldset"]} ${style["fieldset__items"]}`}>
@@ -245,15 +273,15 @@ export default function InvoiceAction() {
                                 <div key={item.id} className={`${style["item"]}`}>
                                     <div className={`${style["fieldset__block"]} ${style["item__container"]}  ${style["item__container--name"]}`}>
                                         <label className={`${style["fieldset__label"]} ${style["item__label"]}`} htmlFor={`name-${index}`}>Item Name</label>
-                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="text" id={`name-${index}`} defaultValue={item.name} />
+                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="text" id={`name-${index}`} onChange={(e) => itemHandler(e, index)} name="name" defaultValue={item.name} />
                                     </div>
                                     <div className={`${style["fieldset__block"]} ${style["item__container"]}  ${style["item__container--qty"]}`}>
                                         <label className={`${style["fieldset__label"]} ${style["item__label"]}`} htmlFor={`qty-${index}`}>Qty.</label>
-                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="number" id={`qty-${index}`} defaultValue={item.qty} />
+                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="number" id={`qty-${index}`} onChange={(e) => itemHandler(e, index)} name="qty" defaultValue={item.qty} />
                                     </div>
                                     <div className={`${style["fieldset__block"]} ${style["item__container"]}  ${style["item__container--price"]}`}>
                                         <label className={`${style["fieldset__label"]} ${style["item__label"]}`} htmlFor={`price-${index}`}>Price</label>
-                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="number" id={`price-${index}`} defaultValue={item.price} />
+                                        <input className={`${style["fieldset__input"]} ${style["item__input"]}`} type="number" id={`price-${index}`} onChange={(e) => itemHandler(e, index)} name="price" defaultValue={item.price} />
                                     </div>
                                     <div className={`${style["fieldset__block"]} ${style["item__container"]}  ${style["item__container--total"]}`}>
                                         <p className={`${style["fieldset__label"]} ${style["item__label"]}`}>Total</p>
