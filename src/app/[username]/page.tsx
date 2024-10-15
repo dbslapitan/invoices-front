@@ -1,10 +1,8 @@
-import Invoices from "@/ui/invoices/invoices";
-import style from "./page.module.scss";
+import { redirect } from "next/navigation";
 
-export default function PreviewPage(){
-    return(
-        <>
-            <Invoices />
-        </>
-    );
+export default function Username(){
+
+    redirect("/preview/invoices");
+
+    return null;
 }
