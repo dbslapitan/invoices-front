@@ -8,4 +8,12 @@
     width: 100%;
     background-color: #00000080;
     min-height: calc(100vh - 4.5rem);
+
+    @include tablet{
+        min-height: calc(100vh - 5rem);
+    }
+
+    @include desktop{
+        min-height: 100vh;
+    }
 }

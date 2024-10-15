@@ -18,9 +18,17 @@ export default function Modal({ children }: {children: ReactNode}){
         (main as HTMLElement).style.maxHeight = `${modal?.clientHeight}px`;
         (main as HTMLElement).style.overflowY = `clip`;
 
+        const onResize = () => {
+            (main as HTMLElement).style.maxHeight = `${modal?.clientHeight}px`;
+            (main as HTMLElement).style.overflowY = `clip`;
+        };
+
+        window.addEventListener("resize", onResize);
+
         return () => {
             (main as HTMLElement).style.maxHeight = `none`;
             (main as HTMLElement).style.overflowY = `auto`;
+            window.removeEventListener("resize", onResize);
         }
 
     });
