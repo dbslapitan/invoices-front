@@ -98,6 +98,9 @@ export default function InvoiceAction() {
 
     const onCheckHandler = (e: FormEvent) => {
         setDueDate(new Date(Number((e.target as HTMLInputElement).value)));
+        if(isDueOpen){
+            setIsDueOpen(false);
+        }
     };
 
     const previousMonthHandler = () => {
