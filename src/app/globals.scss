@@ -16,6 +16,7 @@
     --input-bkg: #FFFFFF;
     --calendar-disable: #{$blacker};
     --btn-secondary: #F9FAFE;
+    --scroll-color: #{$light-gray};
 }
 
 [data-theme='dark']{
@@ -33,6 +34,7 @@
     --input-bkg: #{$dark-blue};
     --calendar-disable: #{$light-gray};
     --btn-secondary: #{$blue};
+    --scroll-color: #{$blue};
 }
 
 html{
