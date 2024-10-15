@@ -4,7 +4,7 @@ export default function AddInvoice({ params }: { params: { username: string } })
 
     return(
         <>
-            <Refresh  params={{ url: `/${params.username}`}}/>
+            <Refresh  params={{ url: `/${params.username}/invoices`}}/>
         </>
     );
 }
