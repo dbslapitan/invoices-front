@@ -180,7 +180,7 @@ export default function InvoiceAction() {
     return (
         <form className={`${style["action"]}`} onClick={formHandler} onSubmit={submitHandler}>
             <div className={`${style["scroll"]}`}>
-                <Back />
+                <Back className={`${style["back--show"]}`}/>
                 <h1 className={`${style["action__title"]}`}>New Invoice</h1>
 
                 <fieldset className={`${style["fieldset"]}`}>

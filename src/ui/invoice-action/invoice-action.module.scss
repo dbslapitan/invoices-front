@@ -408,3 +408,9 @@
         border-radius: 1.5rem;
     }
 }
+
+.back--show{
+    @include mid{
+        display: none;
+    }
+}
