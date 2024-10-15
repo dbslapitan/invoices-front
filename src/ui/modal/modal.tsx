@@ -13,15 +13,15 @@ export default function Modal({ children }: {children: ReactNode}){
     }
 
     useEffect(() => {
-        // const main = document.querySelector("main");
-        // const modal = document.querySelector("#modal");
-        // (main as HTMLElement).style.maxHeight = `${modal?.clientHeight}px`;
-        // (main as HTMLElement).style.overflowY = `clip`;
+        const main = document.querySelector("main");
+        const modal = document.querySelector("#modal");
+        (main as HTMLElement).style.maxHeight = `${modal?.clientHeight}px`;
+        (main as HTMLElement).style.overflowY = `clip`;
 
-        // return () => {
-        //     (main as HTMLElement).style.maxHeight = `none`;
-        //     (main as HTMLElement).style.overflowY = `auto`;
-        // }
+        return () => {
+            (main as HTMLElement).style.maxHeight = `none`;
+            (main as HTMLElement).style.overflowY = `auto`;
+        }
 
     });
 
