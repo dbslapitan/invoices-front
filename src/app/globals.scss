@@ -17,6 +17,10 @@
     --calendar-disable: #{$blacker};
     --btn-secondary: #F9FAFE;
     --scroll-color: #{$light-gray};
+    --secondary-hover: #{$light-gray};
+    --status-color: #858BB2;
+    --draft-opaque: #373B530F;
+    --draft-clr: #373B53;
 }
 
 [data-theme='dark']{
@@ -35,6 +39,10 @@
     --calendar-disable: #{$light-gray};
     --btn-secondary: #{$blue};
     --scroll-color: #{$blue};
+    --secondary-hover: #FFFFFF;
+    --status-color: #{$light-gray};
+    --draft-opaque: #DFE3FA0F;
+    --draft-clr: #DFE3FA;
 }
 
 html{
@@ -154,6 +162,19 @@ fieldset{
 
     &--secondary{
         background-color: var(--btn-secondary);
+        color: $bluish-gray;
+
+        &:hover{
+            background-color: var(--secondary-hover);
+        }
+    }
+
+    &--red{
+        background-color: $red;
+        
+        &:hover{
+            background-color: $light-red;
+        }
     }
 }
 

@@ -3,15 +3,40 @@
 
 .invoice{
     padding: 2rem 1.5rem 9.1875rem 1.5rem;
+    position: relative;
+    
 
     &__actions{
         margin-top: 2rem;
         padding: 1.5rem;
         background-color: var(--invoice-bkg);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include tablet{
+            padding: 1.25rem 2rem;
+            column-gap: 1.5rem;
+        }
     }
 
     &__buttons{
         display: flex;
+        column-gap: 0.5rem;
+        margin-left: auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.375rem 1.5rem;
+        justify-content: space-between;
+        background-color: var(--invoice-bkg);
+
+        @include tablet{
+            position: static;
+            width: unset;
+        }
     }
 
     &__button{
@@ -22,17 +47,72 @@
         &--edit{
             padding-left: 1.5rem;
             padding-right: 1.5rem;
-            background-color: var(--btn-secondary);
         }
 
         &--delete{
+            color: #FFF;
             padding-left: 1.5rem;
             padding-right: 1.5rem;
         }
 
         &--mark{
+            color: #FFF;
             padding-left: 1.75rem;
             padding-right: 1.75rem;
+        }
+    }
+
+    &__label{
+        @include body-m;
+        color: var(--status-color);
+        position: relative;
+        top: 2px;
+    }
+
+    &__status{
+        @include heading-sv;
+        padding: 0.875rem 1.1875rem 0.6875rem 1.125rem;
+        display: flex;
+        column-gap: 0.5rem;
+        border-radius: 0.375rem;
+        min-width: 6.5rem;
+        justify-content: center;
+
+        &::before{
+            content: " ";
+            display: block;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            position: relative;
+            top: 1px;
+        }
+
+        &--Pending{
+            background-color: #FF8F000F;
+            color: #FF8F00;
+
+            &::before{
+                background-color: #FF8F00;
+            }
+        }
+
+        &--Draft{
+            background-color: var(--draft-opaque);
+            color: var(--draft-clr);
+
+            &::before{
+                background-color: var(--draft-clr);
+            }
+        }
+
+        &--Paid{
+            background-color: #33D69F0F;
+            color: #33D69F;
+
+            &::before{
+                background-color: #33D69F;
+            }
         }
     }
 }
