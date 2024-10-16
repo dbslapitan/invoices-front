@@ -125,13 +125,29 @@
         border-radius: 0.5rem;
     }
 
-    &__id{
+    &__large{
         @include heading-sv;
+    }
+
+    &__small{
+        @include body-m;
+        color: var(--invoice-due);
+        font-style: normal;
+    }
+
+    &__id{
 
         &::before{
             @include heading-sv;
             content: "#";
             color: $bluish-gray;
+        }
+    }
+
+    &__address{
+
+        &--from{
+            margin-top: 1.875rem;
         }
     }
 }

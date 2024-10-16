@@ -19,7 +19,17 @@ export default function Invoice({params}: {params: {invoiceId: string}}){
                     </div>
                 </article>
                 <article className={`${style["invoice__details"]}`}>
-                    <h1 className={`${style["invoice__id"]}`}>XM9141</h1>
+                    <h1 className={`${style["invoice__id"]} ${style["invoice__large"]}`}>XM9141</h1>
+                    <p className={`${style["invoice__small"]}`}>Graphic Design</p>
+                    <address className={`${style["invoice__small"]} ${style["invoice__address--from"]}`}>
+                        19 Union Terrace
+                        <br />
+                        London
+                        <br />
+                        E13EZ
+                        <br />
+                        United Kingdom
+                    </address>
                 </article>
             </section>
     );
