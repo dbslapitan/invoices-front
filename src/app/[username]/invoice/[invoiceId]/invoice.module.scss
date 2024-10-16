@@ -225,4 +225,13 @@
             }
         }
     }
+
+    &__items{
+        margin-top: 2.375rem;
+        width: 100%;
+
+        @include tablet{
+            margin-top: 3rem;
+        }
+    }
 }

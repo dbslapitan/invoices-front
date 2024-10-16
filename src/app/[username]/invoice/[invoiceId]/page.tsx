@@ -60,6 +60,16 @@ export default function Invoice({ params }: { params: { invoiceId: string } }) {
                         <p className={`${style["invoice__info"]} ${style["invoice__large"]}`}>alexgrim@gmail.com</p>
                     </div>
                 </div>
+                <table className={`${style["invoice__items"]}`}>
+                    <thead>
+                        <tr>
+                            <td>Item Name</td>
+                            <td>QTY.</td>
+                            <td>Price</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                </table>
             </article>
         </section>
     );
