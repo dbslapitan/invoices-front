@@ -2,8 +2,9 @@
 @use "../../../../styles/variables" as *;
 
 .invoice{
-    padding: 2rem 1.5rem 9.1875rem 1.5rem;
-    position: relative;
+    width: 87.2%;
+    padding: 2rem 0 1.5rem;
+    margin: auto;
     
 
     &__actions{
@@ -22,7 +23,7 @@
     }
 
     &__buttons{
-        display: flex;
+        display: none;
         column-gap: 0.5rem;
         margin-left: auto;
         position: absolute;
@@ -30,7 +31,7 @@
         left: 0;
         width: 100%;
         padding: 1.375rem 1.5rem;
-        justify-content: space-between;
+        justify-content: center;
         background-color: var(--invoice-bkg);
 
         @include tablet{

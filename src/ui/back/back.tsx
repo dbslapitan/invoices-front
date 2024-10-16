@@ -9,7 +9,7 @@ export default function Back({className = ""} : {className?: string}){
     const router = useRouter();
     const clickHandler = (e: MouseEvent) => {
         e.stopPropagation();
-        router.back();
+        router.push("/preview/invoices");
     }
 
     return(
