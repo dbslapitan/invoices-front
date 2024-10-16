@@ -131,6 +131,12 @@
 
         @include tablet{
             padding: 2rem;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        @include desktop{
+            padding: 3rem;
         }
     }
 
@@ -158,6 +164,18 @@
 
         &--from{
             margin-top: 1.875rem;
+
+            @include tablet{
+                margin: 0;
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+            }
+
+            @include desktop{
+                top: 3rem;
+                right: 3rem;
+            }
         }
 
         &--to{
@@ -170,6 +188,10 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
+        @include tablet{
+            margin-top: 3.5rem;
+        }
     }
 
     &__info{
