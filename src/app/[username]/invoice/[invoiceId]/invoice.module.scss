@@ -5,6 +5,11 @@
     width: 87.2%;
     padding: 2rem 0 3.5rem;
     margin: auto;
+    max-width: 45.625rem;
+
+    @include desktop{
+        padding-top: 4rem;
+    }
     
 
     &__actions{
@@ -123,6 +128,10 @@
         margin-top: 1rem;
         background-color: var(--invoice-bkg);
         border-radius: 0.5rem;
+
+        @include tablet{
+            padding: 2rem;
+        }
     }
 
     &__large{
@@ -145,9 +154,53 @@
     }
 
     &__address{
+        line-height: 1.38462;
 
         &--from{
             margin-top: 1.875rem;
+        }
+
+        &--to{
+            margin-top: 0.5rem;
+        }
+    }
+
+    &__to{
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__info{
+        padding-top: 0.75rem;
+    }
+
+    &__item{
+
+        &--first{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+
+            @include tablet{
+                width: 33%;
+            }
+        }
+
+        &--second{
+            width: 50%;
+
+            @include tablet{
+                width: 33%;
+            }
+        }
+
+        &--third{
+            
+            @include tablet{
+                width: 33%;
+            }
         }
     }
 }
