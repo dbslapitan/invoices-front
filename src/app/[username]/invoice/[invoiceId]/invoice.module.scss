@@ -3,7 +3,7 @@
 
 .invoice{
     width: 87.2%;
-    padding: 2rem 0 1.5rem;
+    padding: 2rem 0 3.5rem;
     margin: auto;
     
 
@@ -23,16 +23,17 @@
     }
 
     &__buttons{
-        display: none;
+        display: flex;
         column-gap: 0.5rem;
         margin-left: auto;
         position: absolute;
-        bottom: 0;
         left: 0;
         width: 100%;
         padding: 1.375rem 1.5rem;
         justify-content: center;
         background-color: var(--invoice-bkg);
+        top: 100%;
+        
 
         @include tablet{
             position: static;
@@ -115,5 +116,12 @@
                 background-color: #33D69F;
             }
         }
+    }
+
+    &__details{
+        padding: 1.5rem;
+        margin-top: 1rem;
+        background-color: var(--invoice-bkg);
+        border-radius: 0.5rem;
     }
 }

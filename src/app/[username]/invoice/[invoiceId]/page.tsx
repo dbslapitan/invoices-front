@@ -9,7 +9,7 @@ export default function Invoice({params}: {params: {invoiceId: string}}){
     return(
             <section className={`${style["invoice"]}`}>
                 <Back />
-                <article  className={`${style["invoice__actions"]}`}>
+                <article className={`${style["invoice__actions"]}`}>
                     <p className={`${style["invoice__label"]}`}>Status</p>
                     <p className={`${style["invoice__status"]} ${style[`invoice__status--${status}`]}`}>{status}</p>
                     <div className={`${style["invoice__buttons"]}`}>
@@ -17,6 +17,9 @@ export default function Invoice({params}: {params: {invoiceId: string}}){
                         <button className={`btn--red ${style["invoice__button"]} ${style["invoice__button--delete"]}`}>Delete</button>
                         <button className={`btn--purple ${style["invoice__button"]} ${style["invoice__button--mark"]}`}>Mark as Paid</button>
                     </div>
+                </article>
+                <article className={`${style["invoice__details"]}`}>
+
                 </article>
             </section>
     );
