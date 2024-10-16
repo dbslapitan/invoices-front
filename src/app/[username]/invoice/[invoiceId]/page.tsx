@@ -19,7 +19,7 @@ export default function Invoice({params}: {params: {invoiceId: string}}){
                     </div>
                 </article>
                 <article className={`${style["invoice__details"]}`}>
-
+                    <h1 className={`${style["invoice__id"]}`}>XM9141</h1>
                 </article>
             </section>
     );

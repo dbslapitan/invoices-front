@@ -124,4 +124,14 @@
         background-color: var(--invoice-bkg);
         border-radius: 0.5rem;
     }
+
+    &__id{
+        @include heading-sv;
+
+        &::before{
+            @include heading-sv;
+            content: "#";
+            color: $bluish-gray;
+        }
+    }
 }
