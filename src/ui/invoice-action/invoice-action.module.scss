@@ -53,7 +53,7 @@
     z-index: 1;
 
     @include mid{
-        max-height: calc(100vh - 4.5rem - 7rem);
+        max-height: calc(100vh - 9rem - 7rem);
         margin: 3.6875rem 2rem 1rem;
         padding-right: 1.5rem;
         overflow-y: auto;
