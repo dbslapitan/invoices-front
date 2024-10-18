@@ -19,7 +19,7 @@
     }
 
     @include desktop{
-        max-height: 100vh;
+        min-height: 100vh;
     }
 
     &__title{
@@ -53,10 +53,15 @@
     z-index: 1;
 
     @include mid{
-        max-height: calc(100vh - 9rem - 7rem);
-        margin: 3.6875rem 2rem 1rem;
+        max-height: calc(100vh - 15.5rem);
+        margin: 3.6875rem 2rem 0;
         padding-right: 1.5rem;
         overflow-y: auto;
+        padding-bottom: 1rem;
+    }
+
+    @include desktop{
+        max-height: calc(100vh - 10.6875rem);
     }
 }
 
