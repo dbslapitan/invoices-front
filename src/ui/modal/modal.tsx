@@ -26,9 +26,9 @@ export default function Modal({ children }: {children: ReactNode}){
         window.addEventListener("resize", onResize);
 
         return () => {
+            window.removeEventListener("resize", onResize);
             (main as HTMLElement).style.maxHeight = `none`;
             (main as HTMLElement).style.overflowY = `auto`;
-            window.removeEventListener("resize", onResize);
         }
 
     });

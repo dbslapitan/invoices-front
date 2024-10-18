@@ -37,8 +37,7 @@
         padding: 1.375rem 1.5rem;
         justify-content: center;
         background-color: var(--invoice-bkg);
-        top: 100%;
-        
+        bottom: 0;
 
         @include tablet{
             position: static;
@@ -231,6 +230,7 @@
         width: 100%;
         background-color: var(--btn-secondary);
         border-radius: 0.5rem;
+        border-collapse: collapse;
 
         @include tablet{
             margin-top: 3rem;
