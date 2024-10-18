@@ -21,7 +21,8 @@
     --status-color: #858BB2;
     --draft-opaque: #373B530F;
     --draft-clr: #373B53;
-    color: $blacker;
+    color: #{$blacker};
+    --total-bkg: #{$light-blue};
 }
 
 [data-theme='dark']{
@@ -45,6 +46,7 @@
     --draft-opaque: #DFE3FA0F;
     --draft-clr: #DFE3FA;
     color: #FFF;
+    --total-bkg: #{$blacker};
 }
 
 html{

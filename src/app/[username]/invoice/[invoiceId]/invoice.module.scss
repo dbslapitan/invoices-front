@@ -229,9 +229,79 @@
     &__items{
         margin-top: 2.375rem;
         width: 100%;
+        background-color: var(--btn-secondary);
+        border-radius: 0.5rem;
 
         @include tablet{
             margin-top: 3rem;
         }
+    }
+
+    &__thead{
+        display: none;
+    }
+
+    &__tbody{
+        display: block;
+        padding: 1.5rem;
+    }
+
+    &__item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.5rem;
+
+        &:first-of-type{
+            margin-top: 0;
+        }
+    }
+
+    &__cell{
+        @include heading-sv;
+
+        &--name{
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.5rem;
+        }
+        
+        &--qty{
+            display: none;
+        }
+
+        &--price{
+            display: none;
+        }
+    }
+
+    &__tfoot{
+        display: block;
+        padding: 1.5rem;
+        background-color: var(--total-bkg);
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+
+    &__total{
+        display: flex;
+        justify-content: space-between;
+        color: #FFF;
+        align-items: center;
+    }
+
+    &__value{
+        @include heading-m;
+    }
+
+    &__label{
+        @include body-m;
+        line-height: 1.38462;
+    }
+}
+
+.cell{
+
+    &__calculation{
+        color: var(--action-lbl);
     }
 }

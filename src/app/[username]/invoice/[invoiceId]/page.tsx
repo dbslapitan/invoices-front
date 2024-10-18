@@ -1,9 +1,23 @@
 import Back from "@/ui/back/back";
 import style from "./invoice.module.scss";
+import {v4 as uuidv4} from "uuid";
 
 export default function Invoice({ params }: { params: { invoiceId: string } }) {
 
     const status = "Paid";
+
+    const items = [{
+        name: "Banner Design",
+        quantity: 1,
+        price: 156
+    },
+    {
+        name: "Banner Design",
+        quantity: 1,
+        price: 156
+    }];
+
+    const grandTotal = items.reduce((total, current) => total += current.quantity * current.price, 0);
 
     return (
         <section className={`${style["invoice"]}`}>
@@ -61,14 +75,34 @@ export default function Invoice({ params }: { params: { invoiceId: string } }) {
                     </div>
                 </div>
                 <table className={`${style["invoice__items"]}`}>
-                    <thead>
-                        <tr>
-                            <td>Item Name</td>
-                            <td>QTY.</td>
-                            <td>Price</td>
-                            <td>Total</td>
+                    <thead className={`${style["invoice__thead"]}`}>
+                        <tr className={`${style["invoice__headers"]}`}>
+                            <td className={`${style["invoice__header"]}`}>Item Name</td>
+                            <td className={`${style["invoice__header"]}`}>QTY.</td>
+                            <td className={`${style["invoice__header"]}`}>Price</td>
+                            <td className={`${style["invoice__header"]}`}>Total</td>
                         </tr>
                     </thead>
+                    <tbody className={`${style["invoice__tbody"]}`}>
+                        {
+                            items.map(invoice => {
+                                return(
+                                    <tr key={uuidv4()} className={`${style["invoice__item"]}`}>
+                                        <td className={`${style["invoice__cell"]} ${style["invoice__cell--name"]}`}><span className={`${style["cell__name"]}`}>{invoice.name}</span><span className={`${style["cell__calculation"]}`}>{`${invoice.quantity} x $ ${invoice.price}`}</span></td>
+                                        <td className={`${style["invoice__cell"]} ${style["invoice__cell--qty"]}`}>{invoice.quantity}</td>
+                                        <td className={`${style["invoice__cell"]} ${style["invoice__cell--price"]}`}>{invoice.price}</td>
+                                        <td className={`${style["invoice__cell"]} ${style["invoice__cell--total"]}`}>{invoice.quantity * invoice.price}</td>
+                                    </tr>
+                                );
+                            })
+                        }
+                    </tbody>
+                    <tfoot className={`${style["invoice__tfoot"]}`}>
+                        <tr className={`${style["invoice__total"]}`}>
+                            <td className={`${style["invoice__lbl"]}`}>Amount Due</td>
+                            <td className={`${style["invoice__value"]}`}>{grandTotal}</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </article>
         </section>
