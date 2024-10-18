@@ -255,7 +255,7 @@ export default function InvoiceAction() {
                     <div className={`${style["fieldset__block"]} ${style["fieldset__block--term"]}`}>
                         <Image className={`${style["fieldset__block--chevron"]}`} src={chevron} alt="chevron right"></Image>
                         <label className={`${style["fieldset__label"]}`} htmlFor="to-terms">Payment Terms</label>
-                        <input type="button" className={`${style["fieldset__input"]}`} id="to-due" name="term" value={`Net ${invoice.terms} Day`} onClick={termClickHandler} />
+                        <input type="button" className={`${style["fieldset__input"]}`} id="to-terms" name="term" value={`Net ${invoice.terms} Day`} onClick={termClickHandler} />
                         <div className={`${style["select"]} ${isTermsOpen ? style["select--show"] : ""}`}>
                             <button type="button" className={`${style["select__option"]}`} onClick={() => termHandler(1)}>Net 1 Day</button>
                             <button type="button" className={`${style["select__option"]}`} onClick={() => termHandler(7)}>Net 7 Days</button>

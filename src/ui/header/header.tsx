@@ -15,7 +15,7 @@ export default function Header(){
             </Link>
             <ThemeToggle />
             <div className={`${style["user"]}`}>
-                <Image className={`${style["user__img"]}`} src={userImage} alt="user image"></Image>
+                <Image className={`${style["user__img"]}`} src={userImage} alt="user image" priority></Image>
             </div>
         </header>
     );
