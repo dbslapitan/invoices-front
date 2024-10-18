@@ -1,8 +1,9 @@
 import Back from "@/ui/back/back";
 import style from "./invoice.module.scss";
 import {v4 as uuidv4} from "uuid";
+import Link from "next/link";
 
-export default function Invoice({ params }: { params: { invoiceId: string } }) {
+export default function Invoice({ params }: { params: { invoiceId: string, username: string } }) {
 
     const status = "Paid";
 
@@ -27,7 +28,7 @@ export default function Invoice({ params }: { params: { invoiceId: string } }) {
                 <p className={`${style["invoice__status"]} ${style[`invoice__status--${status}`]}`}>{status}</p>
                 <div className={`${style["invoice__buttons"]}`}>
                     <button className={`btn--secondary ${style["invoice__button"]} ${style["invoice__button--edit"]}`}>Edit</button>
-                    <button className={`btn--red ${style["invoice__button"]} ${style["invoice__button--delete"]}`}>Delete</button>
+                    <Link href={`/${params.username}/invoice/${params.invoiceId}/delete`} className={`btn--red ${style["invoice__button"]} ${style["invoice__button--delete"]}`}>Delete</Link>
                     <button className={`btn--purple ${style["invoice__button"]} ${style["invoice__button--mark"]}`}>Mark as Paid</button>
                 </div>
             </article>
