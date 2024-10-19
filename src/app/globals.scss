@@ -88,9 +88,11 @@ header{
 main{
     position: relative;
     min-height: calc(100vh - 4.5rem);
+    padding-bottom: 7rem;
 
     @include tablet{
         min-height: calc(100vh - 5rem);
+        padding-bottom: 0;
     }
 
     @include desktop{

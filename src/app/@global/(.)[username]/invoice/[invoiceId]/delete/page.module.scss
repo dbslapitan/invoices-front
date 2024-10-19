@@ -1,2 +1,41 @@
 @use "../../../../../../styles/mixins" as *;
 @use "../../../../../../styles/variables" as *;
+
+.delete{
+    min-width: 20.4375rem;
+    max-width: 30rem;
+    padding: 2.125rem 2rem 2rem;
+    margin: 0 6.4%;
+    background-color: var(--invoice-bkg);
+    border-radius: 0.5rem;
+
+    @include tablet{
+        padding: 3rem;
+    }
+
+    &__header{
+        @include heading-m;
+        line-height: 1.33333;
+    }
+
+    &__description{
+        @include body-m;
+        line-height: 1.69231;
+        margin-top: 0.5rem;
+        color: $gray;
+    }
+
+    &__cancel{
+        @include heading-sv;
+        margin-top: 1.5rem;
+        padding: 1.125rem 1.5rem 0.9375rem 1.5rem;
+        border-radius: 1.25rem;
+        display: inline-block;
+    }
+}
+
+.modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
