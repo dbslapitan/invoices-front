@@ -1,0 +1,12 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.modal{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #00000080;
+    z-index: 3;
+}

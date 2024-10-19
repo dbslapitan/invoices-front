@@ -10,16 +10,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-    children, modal
+    children, modal, global
 }: Readonly<{
     children: React.ReactNode;
     modal  : React.ReactNode;
+    global: React.ReactNode;
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={leagueSpartan.className}>
                 <Providers>
                     <Header />
+                    {global}
                     <main>
                         {children}
                         {modal}
