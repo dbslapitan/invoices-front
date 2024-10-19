@@ -8,6 +8,7 @@
     margin: 0 6.4%;
     background-color: var(--invoice-bkg);
     border-radius: 0.5rem;
+    text-align: end;
 
     @include tablet{
         padding: 3rem;
@@ -16,6 +17,7 @@
     &__header{
         @include heading-m;
         line-height: 1.33333;
+        text-align: start;
     }
 
     &__description{
@@ -23,6 +25,7 @@
         line-height: 1.69231;
         margin-top: 0.5rem;
         color: $gray;
+        text-align: start;
     }
 
     &__cancel{
