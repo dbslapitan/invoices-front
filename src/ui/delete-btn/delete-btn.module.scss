@@ -1,0 +1,11 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.delete{
+    @include heading-sv;
+    border-radius: 1.5rem;
+    color: #FFF;
+    padding: 1.125rem 1.5rem 0.9375rem 1.5rem;
+    border-radius: 1.25rem;
+    margin-left: 0.5rem;
+}
