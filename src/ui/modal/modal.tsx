@@ -13,6 +13,11 @@ export default function Modal({ children }: {children: ReactNode}){
     }
 
     useEffect(() => {
+        const escPressed = (e: KeyboardEvent) => {  
+            if(e.key === "Escape"){
+                router.back();
+            }
+        }
         const main = document.querySelector("main");
         const modal = document.querySelector("#modal");
         (main as HTMLElement).style.maxHeight = `${modal?.clientHeight}px`;
@@ -24,11 +29,13 @@ export default function Modal({ children }: {children: ReactNode}){
         };
 
         window.addEventListener("resize", onResize);
+        window.addEventListener("keyup", escPressed);
 
         return () => {
             window.removeEventListener("resize", onResize);
             (main as HTMLElement).style.maxHeight = `none`;
             (main as HTMLElement).style.overflowY = `auto`;
+            window.removeEventListener("keyup", escPressed);
         }
 
     });

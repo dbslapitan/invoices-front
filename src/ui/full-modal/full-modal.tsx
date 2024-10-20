@@ -11,8 +11,17 @@ export default function FullModal({children, className=""}: {children: ReactNode
     useEffect(() => {
         document.body.style.overflowY = "clip";
 
+        const escPressed = (e: KeyboardEvent) => {  
+            if(e.key === "Escape"){
+                router.back();
+            }
+        }
+
+        window.addEventListener("keyup", escPressed);
+
         return () => {
             document.body.style.overflowY = "auto";
+            window.removeEventListener("keyup", escPressed);
         };
     });
 
